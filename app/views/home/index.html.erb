@@ -1,18 +1,27 @@
 <h3>This Is Clickbait Generator.</h3>
-<div class="span8">
+<div class="span12">
   <%= form_tag '/home/generate' do |f| %>
-      <div class="row-fluid">
-        <%= label_tag 'Pick a Style', '', class: 'span4' %>
+      <div class="row">
+        <p class='col-12'>Pick a Style:</p>
       </div>
-      <div class="row-fluid">
-        <%= label_tag 'Listicle'%>
-        <%= radio_button_tag('whathappens', 'false', checked: true )%>
-        <%= label_tag 'What Happens Next...'%>
-        <%= radio_button_tag('whathappens', 'true', checked: false) %>
+      <div class="row input-group">
+        <div class="checkbox">
+        <%= label_tag 'listicle','', for: 'whathappens', class: 'col-md-6' do %>
+            <%= radio_button_tag('whathappens', 'false', checked: true) %>
+            Listicle
+        <% end %>
+        </div>
+        <div class="checkbox">
+          <%= label_tag 'whathappens', '',for: 'whathappens', class: 'col-md-6' do %>
+              <%= radio_button_tag('whathappens', 'true') %>
+              What Happens Next...
+          <% end %>
+
+        </div>
       </div>
       <%= submit_tag "Generate!" %>
   <% end %>
 </div>
 <div class="row">
-  <h1 class='span8'><%= @headline %> </h1>
+  <h1 class='span12'><%= @headline %> </h1>
 </div>
