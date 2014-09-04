@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   namespace :home do
     get 'index'
-    get 'generate'
+    post 'generate'
   end
 
   root 'home#index'
