@@ -2,11 +2,13 @@ clickbait_generator
 ===================
 A clickbait headline generator in Ruby.
 
+You can run clickbait.rb from the top level directory (this is the original script), or you can run it as a Rails app.
+
 Usage:  clickbait.rb [-w|--whathappens] 
 
-Default behavior, with no arguments, generates a 'N [things] that will [do something hyperbolic]' headline. 
+Default behavior, with no arguments, generates a listicle headline: 'N [things] that will [do something hyperbolic]' 
 
-  -w    Generate a 'What Happens Next' headline
+  -w    Generates a 'What Happens Next' type of headline
 
 Examples:
 
