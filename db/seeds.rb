@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-['Americans', 'White People', 'Babies', 'Puppies', 'Kittens', 'People', 'Friends', 'Books', 'Photos', 'Movies', 'Rumors', 'Conspiracy Theories', 'Signs', 'Countries', 'Cities', 'Houses', 'Lovers', 'Explanations', 'Reasons', 'Ideas', 'Low-Carb Lunches', 'Superherioes', 'Observations', 'Interview Questions', 'Celebrities', 'Secrets', 'Clowns', 'Criminals', 'Fashion Mistake', 'Some Dudes', 'The Recycling Mistake', 'Felonies'].each do |n|
-  Noun.find_or_create_by(value: n, is_singular: false)
+['Americans', 'White People', 'Babies', 'Puppies', 'Kittens', 'People', 'Friends', 'Books', 'Photos', 'Movies', 'Rumors', 'Conspiracy Theories', 'Signs', 'Countries', 'Cities', 'Houses', 'Lovers', 'Explanations', 'Reasons', 'Ideas', 'Low-Carb Lunches', 'Superheroes', 'Observations', 'Interview Questions', 'Celebrities', 'Secrets', 'Clowns', 'Criminals', 'Fashion Mistake', 'Dude', 'Recycling Mistake', 'Felonies'].each do |n|
+  Noun.find_or_create_by(value: n)
 
   ['Bully', 'Street Musician', 'Kitten', 'Dog', 'Scientist', 'Puppy', 'Monkey', 'Bunny', 'Policeman', 'Fireman', 'Old Woman', 'Old Man', 'Little Girl', 'Baby', 'Baby Hedgehog', 'Micropig', 'Cranky Old Cat', 'Little Boy', 'Guy'].each do |n|
     Noun.find_or_create_by(value: n)
@@ -17,7 +17,7 @@
 Awesome', 'Only Clumsy People Will Understand', 'Only Beautiful People Will Understand', 'Only Men Will Understand', 'Only Women Will Understand', "You're Probably Making", 'Are Old And Busted', "You Ignore At Your Peril", "They Don't Want You to See", "Doctors Don't Want You To Know", "The Government is Hiding from You", 'Need To Stop Doing To Women', 'Boldly Show How Different Life Is In the Two Koreas', 'You Should Not Click On No Matter What', 'That People Make Every Day', "That You Have Probably Already Done and Don\'t Know It", "Will Make You Punch Yourself In The Taint"].each do |p|
     Predicate.find_or_create_by(value: p)
   end
-  ['Best', 'Worst', 'Greatest', 'Silliest', 'Dumbest', 'Most Dangerous', 'Safest', 'Strangest', 'Creepiest', 'Funkiest', 'Hottest', 'Grossest', 'Most Breathtaking', 'Most Astonishing', 'Insane', 'Most Amazing', 'Heartbreaking', 'Saddest', 'Happiest', 'Most Exciting', 'Healthiest', 'Most Poisonous', 'Unhealthiest', 'Time-Travelling', 'Most Terrifying', 'Annoying', 'Secret'].each do |n|
+  ['Best', 'Worst', 'Greatest', 'Silliest', 'Dumbest', 'Most Dangerous', 'Safest', 'Strangest', 'Creepiest', 'Funkiest', 'Hottest', 'Grossest', 'Most Breathtaking', 'Most Astonishing', 'Insane', 'Most Amazing', 'Heartbreaking', 'Saddest', 'Happiest', 'Most Exciting', 'Healthiest', 'Most Poisonous', 'Unhealthiest', 'Time-Travelling', 'Most Terrifying', 'Annoying', 'Secret', 'Craziest', 'Weirdest'].each do |n|
     Adjective.find_or_create_by(value: n)
   end
 

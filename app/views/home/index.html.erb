@@ -1,27 +1,25 @@
-<h3>This Is Clickbait Generator.</h3>
+<h4>This is Clickbait Generator.</h4>
 <div class="span12">
-  <%= form_tag '/home/generate' do |f| %>
+  <%= form_tag '/home/generate', class: 'form-inline' do |f| %>
       <div class="row">
         <p class='col-12'>Pick a Style:</p>
       </div>
-      <div class="row input-group">
-        <div class="checkbox">
-        <%= label_tag 'listicle','', for: 'whathappens', class: 'col-md-6' do %>
-            <%= radio_button_tag('whathappens', 'false', checked: true) %>
-            Listicle
-        <% end %>
-        </div>
-        <div class="checkbox">
-          <%= label_tag 'whathappens', '',for: 'whathappens', class: 'col-md-6' do %>
-              <%= radio_button_tag('whathappens', 'true') %>
-              What Happens Next...
+      <div class="form-group">
+        <div class="input-group radio-button">
+          <%= label_tag 'listicle','', for: 'whathappens', class: 'col-md-6' do %>
+              <%= radio_button_tag('whathappens', 'false',!@whathappens) %>
+              <strong>Listicle</strong>
           <% end %>
-
+          <%= label_tag 'whathappens', '',for: 'whathappens', class: 'col-md-6' do %>
+              <%= radio_button_tag('whathappens', 'true', @whathappens) %>
+              <strong>What Happens Next...</strong>
+          <% end %>
         </div>
+          <%= submit_tag "Generate!", class: 'btn btn-lg' %>
       </div>
-      <%= submit_tag "Generate!" %>
   <% end %>
 </div>
 <div class="row">
   <h1 class='span12'><%= @headline %> </h1>
 </div>
+

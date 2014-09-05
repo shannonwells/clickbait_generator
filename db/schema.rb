@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904055248) do
+ActiveRecord::Schema.define(version: 20140905043638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,8 +30,7 @@ ActiveRecord::Schema.define(version: 20140904055248) do
 
   create_table "nouns", force: true do |t|
     t.string  "value"
-    t.boolean "is_singular", default: true
-    t.boolean "is_proper",   default: false
+    t.boolean "is_proper", default: false
   end
 
   create_table "particles", force: true do |t|
