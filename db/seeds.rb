@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-['American', 'White Person', 'Baby', 'Pupy', 'Kitten', 'Person', 'Friend', 'Book', 'Photo', 'Movie', 'Rumor', 'Conspiracy Theory', 'Sign', 'Country', 'City', 'House', 'Lover', 'Explanation', 'Reason', 'Idea', 'Low-Carb Lunch', 'Superhero', 'Observation', 'Interview Question', 'Celebrity', 'Secret', 'Clown', 'Criminal', 'Fashion Mistake', 'Dude', 'Recycling Mistake', 'Felony','Bully', 'Street Musician', 'Kitten', 'Dog', 'Scientist', 'Puppy', 'Monkey', 'Bunny', 'Policeman', 'Fireman', 'Old Woman', 'Old Man', 'Little Girl', 'Baby', 'Baby Hedgehog', 'Micropig', 'Cranky Old Cat', 'Little Boy', 'Guy','Reptile'].each do |n|
+['American', 'White Person', 'Baby', 'Puppy', 'Kitten', 'Person', 'Friend', 'Book', 'Photo', 'Movie', 'Rumor', 'Conspiracy Theory', 'Sign', 'Country', 'City', 'House', 'Lover', 'Explanation', 'Reason', 'Idea', 'Low-Carb Lunch', 'Superhero', 'Observation', 'Interview Question', 'Celebrity', 'Secret', 'Clown', 'Criminal', 'Fashion Mistake', 'Dude', 'Recycling Mistake', 'Felony','Bully', 'Street Musician', 'Kitten', 'Dog', 'Scientist', 'Puppy', 'Monkey', 'Bunny', 'Policeman', 'Fireman', 'Old Woman', 'Old Man', 'Little Girl', 'Baby', 'Baby Hedgehog', 'Micropig', 'Cranky Old Cat', 'Little Boy', 'Guy','Reptile'].each do |n|
     Noun.find_or_create_by(value: n)
   end
 

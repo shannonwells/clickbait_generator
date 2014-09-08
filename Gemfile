@@ -36,7 +36,7 @@ gem 'twitter-bootstrap-rails'
 
 # Compiles assets for heroku
 gem 'rails_12factor', group: :production
-
+gem 'awesome_print'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

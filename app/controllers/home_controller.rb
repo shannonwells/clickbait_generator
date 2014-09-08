@@ -14,6 +14,7 @@ class HomeController < ApplicationController
     srand(Time.now.to_i)
     items = rand(99)+2
     num_nouns = Noun.count
+    num_particles = Particle.count
     noun = Noun.limit(1).offset(rand(num_nouns)).first
     case @current_val
       when 'whathappens'
@@ -39,20 +40,20 @@ class HomeController < ApplicationController
         pred = Predicate.limit(1).offset(rand(num_pred)).first.value
         "The #{items} #{adj} #{noun.value.pluralize} That #{pred}".html_safe
       when 'watchas'
-        particle = noun.is_proper ? '' : Particle.limit(1).offset(rand(num_particles)).first.value
-        particle = 'An' if particle == 'A' && noun.value.match(/^[aeiouh]/i)
-
         noun2 = Noun.limit(1).offset(rand(num_nouns)).first
-        particle2 = noun.is_proper ? '' : Particle.limit(1).offset(rand(num_particles)).first.value
-        particle2 = 'An' if particle == 'A' && noun.value.match(/^[aeiouh]/i)
+        if  noun2.is_proper
+          particle = ''
+        else
+          particle = Particle.limit(1).offset(rand(num_particles)).first.value
+          particle = 'An' if particle == 'A' && noun.value.match(/\A[aeiouh]/i)
+        end
 
         num_verbs = Verb.count
         verb = Verb.limit(1).offset(rand(num_verbs)).first.value.pluralize
 
         num_adj = Adjective.count
         adj = Adjective.limit(1).offset(rand(num_adj)).first.value
-
-        "Watch As #{particle} #{noun.value} #{verb} #{particle2} #{adj} #{noun2.value}"
+        "Watch As This #{noun.value} #{verb} #{particle} #{adj} #{noun2.value}"
       when 'dontwanna'
         num_adj = Adjective.count
         adj = Adjective.limit(1).offset(rand(num_adj)).first.value
