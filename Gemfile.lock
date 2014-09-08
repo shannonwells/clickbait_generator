@@ -53,6 +53,8 @@ GEM
     mime-types (1.25.1)
     minitest (5.4.1)
     multi_json (1.10.1)
+    nyan-cat-formatter (0.10.1)
+      rspec (>= 2.99, >= 2.14.2, < 4)
     pg (0.17.1)
     polyglot (0.3.5)
     rack (1.5.2)
@@ -90,6 +92,14 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.0.0)
     rspec-mocks (3.0.4)
+      rspec-support (~> 3.0.0)
+    rspec-rails (3.0.2)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.0.0)
+      rspec-expectations (~> 3.0.0)
+      rspec-mocks (~> 3.0.0)
       rspec-support (~> 3.0.0)
     rspec-support (3.0.4)
     sass (3.2.19)
@@ -136,10 +146,11 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   coffee-rails (~> 4.0.0)
   jquery-rails
+  nyan-cat-formatter
   pg
   rails (= 4.1.0)
   rails_12factor
-  rspec
+  rspec-rails
   sass-rails (~> 4.0.3)
   spring
   twitter-bootstrap-rails

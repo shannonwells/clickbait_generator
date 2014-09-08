@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140905043638) do
+ActiveRecord::Schema.define(version: 20140908071051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20140905043638) do
   end
 
   create_table "predicates", force: true do |t|
+    t.string "value"
+  end
+
+  create_table "superlatives", force: true do |t|
+    t.string "value"
+  end
+
+  create_table "verbs", force: true do |t|
     t.string "value"
   end
 

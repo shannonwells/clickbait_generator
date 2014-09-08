@@ -1,0 +1,907 @@
+  [1m[36mSQL (3.1ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (25.4ms)[0m  CREATE TABLE "adjectives" ("id" serial primary key, "value" character varying(255)) 
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "firsts" ("id" serial primary key, "value" character varying(255)) [0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "nexts" ("id" serial primary key, "value" character varying(255)) 
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "nouns" ("id" serial primary key, "value" character varying(255), "is_proper" boolean DEFAULT 'f') [0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "particles" ("id" serial primary key, "value" character varying(255), "is_singular" boolean DEFAULT 't') 
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "predicates" ("id" serial primary key, "value" character varying(255)) [0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.7ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140905043638')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140904055248')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#index as HTML
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "nouns"[0m
+  [1m[35mNoun Load (0.5ms)[0m  SELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0
+Completed 500 Internal Server Error in 8ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "nouns"[0m
+  [1m[35mNoun Load (0.2ms)[0m  SELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "nouns"[0m
+  [1m[35mNoun Load (0.2ms)[0m  SELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#about as HTML
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#about as HTML
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#about as HTML
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (8.9ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"  [["value", "Did Something"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "First"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"  [["value", "Next"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "nouns"
+  [1m[36mNoun Load (0.8ms)[0m  [1mSELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "adjectives"
+  [1m[36mAdjective Load (0.2ms)[0m  [1mSELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "predicates"
+  [1m[36mPredicate Load (0.2ms)[0m  [1mSELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0[0m
+Completed 200 OK in 20ms (Views: 9.4ms | ActiveRecord: 2.0ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Blue"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"  [["value", "Hat"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Did Something"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"  [["value", "First"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Next"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"  [["value", "Did Something"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "First"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"  [["value", "Next"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "nouns"
+  [1m[36mNoun Load (0.2ms)[0m  [1mSELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "adjectives"
+  [1m[36mAdjective Load (0.1ms)[0m  [1mSELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "predicates"
+  [1m[36mPredicate Load (0.2ms)[0m  [1mSELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0[0m
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Blue"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"  [["value", "Hat"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Did Something"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"  [["value", "First"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Next"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#about as HTML
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"  [["value", "Did Something"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "First"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"  [["value", "Next"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "nouns"
+  [1m[36mNoun Load (0.5ms)[0m  [1mSELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "adjectives"
+  [1m[36mAdjective Load (0.1ms)[0m  [1mSELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "predicates"
+  [1m[36mPredicate Load (0.1ms)[0m  [1mSELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0[0m
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 14ms (Views: 7.4ms | ActiveRecord: 1.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Blue"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"  [["value", "Hat"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Did Something"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"  [["value", "First"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Next"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "nouns"[0m
+  [1m[35mNoun Load (0.2ms)[0m  SELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "adjectives"[0m
+  [1m[35mAdjective Load (0.1ms)[0m  SELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "predicates"[0m
+  [1m[35mPredicate Load (0.1ms)[0m  SELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"  [["value", "Did Something"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "First"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"  [["value", "Next"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Blue"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"  [["value", "Hat"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Did Something"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"  [["value", "First"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Next"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#about as HTML
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"  [["value", "Did Something"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#index as HTML
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "nouns"
+  [1m[36mNoun Load (0.2ms)[0m  [1mSELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "adjectives"
+  [1m[36mAdjective Load (0.3ms)[0m  [1mSELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "predicates"
+  [1m[36mPredicate Load (0.2ms)[0m  [1mSELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0[0m
+Completed 200 OK in 6ms (Views: 1.2ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"  [["value", "Did Something"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "First"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"  [["value", "Next"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "nouns"
+  [1m[36mNoun Load (0.4ms)[0m  [1mSELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "adjectives"
+  [1m[36mAdjective Load (0.1ms)[0m  [1mSELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "predicates"
+  [1m[36mPredicate Load (0.1ms)[0m  [1mSELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0[0m
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 14ms (Views: 7.5ms | ActiveRecord: 1.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Blue"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"  [["value", "Hat"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Did Something"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"  [["value", "First"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Next"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "nouns"[0m
+  [1m[35mNoun Load (0.2ms)[0m  SELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "adjectives"[0m
+  [1m[35mAdjective Load (0.1ms)[0m  SELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "predicates"[0m
+  [1m[35mPredicate Load (0.1ms)[0m  SELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"  [["value", "Did Something"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "First"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"  [["value", "Next"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "nouns"
+  [1m[36mNoun Load (0.2ms)[0m  [1mSELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "adjectives"
+  [1m[36mAdjective Load (0.1ms)[0m  [1mSELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "predicates"
+  [1m[36mPredicate Load (0.1ms)[0m  [1mSELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0[0m
+Completed 200 OK in 6ms (Views: 1.3ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Blue"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"  [["value", "Hat"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Did Something"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"  [["value", "First"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Next"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "nouns"[0m
+  [1m[35mNoun Load (0.2ms)[0m  SELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "adjectives"[0m
+  [1m[35mAdjective Load (0.2ms)[0m  SELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "predicates"[0m
+  [1m[35mPredicate Load (0.1ms)[0m  SELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#about as HTML
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"  [["value", "Did Something"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "nouns"
+  [1m[36mNoun Load (0.2ms)[0m  [1mSELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "adjectives"
+  [1m[36mAdjective Load (0.1ms)[0m  [1mSELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "predicates"
+  [1m[36mPredicate Load (0.1ms)[0m  [1mSELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0[0m
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#about as HTML
+  Rendered home/about.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"  [["value", "Did Something"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "nouns"
+  [1m[36mNoun Load (0.4ms)[0m  [1mSELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "adjectives"
+  [1m[36mAdjective Load (0.1ms)[0m  [1mSELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "predicates"
+  [1m[36mPredicate Load (0.1ms)[0m  [1mSELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0[0m
+Completed 200 OK in 8ms (Views: 1.5ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Blue"]]
+  [1m[35m (1.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"  [["value", "Hat"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Did Something"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"  [["value", "First"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Next"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "nouns"[0m
+  [1m[35mNoun Load (0.2ms)[0m  SELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "adjectives"[0m
+  [1m[35mAdjective Load (0.1ms)[0m  SELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "predicates"[0m
+  [1m[35mPredicate Load (0.1ms)[0m  SELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"  [["value", "Did Something"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "First"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"  [["value", "Next"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "nouns"
+  [1m[36mNoun Load (0.2ms)[0m  [1mSELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "adjectives"
+  [1m[36mAdjective Load (0.1ms)[0m  [1mSELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "predicates"
+  [1m[36mPredicate Load (0.1ms)[0m  [1mSELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0[0m
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Blue"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"  [["value", "Hat"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Did Something"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"  [["value", "First"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Next"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "nouns"[0m
+  [1m[35mNoun Load (0.2ms)[0m  SELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "adjectives"[0m
+  [1m[35mAdjective Load (0.2ms)[0m  SELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "predicates"[0m
+  [1m[35mPredicate Load (0.1ms)[0m  SELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"  [["value", "Did Something"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "First"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"  [["value", "Next"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "nouns"
+  [1m[36mNoun Load (0.2ms)[0m  [1mSELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "adjectives"
+  [1m[36mAdjective Load (0.1ms)[0m  [1mSELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "predicates"
+  [1m[36mPredicate Load (0.1ms)[0m  [1mSELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0[0m
+Completed 200 OK in 5ms (Views: 1.4ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#about as HTML
+  Rendered home/about.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"  [["value", "Did Something"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#index as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "nouns"
+  [1m[36mNoun Load (0.5ms)[0m  [1mSELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "adjectives"
+  [1m[36mAdjective Load (0.1ms)[0m  [1mSELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "predicates"
+  [1m[36mPredicate Load (0.1ms)[0m  [1mSELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0[0m
+Completed 200 OK in 9ms (Views: 2.0ms | ActiveRecord: 1.5ms)
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Blue"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"  [["value", "Hat"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Did Something"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"  [["value", "First"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Next"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "nouns"[0m
+  [1m[35mNoun Load (0.2ms)[0m  SELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "adjectives"[0m
+  [1m[35mAdjective Load (0.1ms)[0m  SELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "predicates"[0m
+  [1m[35mPredicate Load (0.1ms)[0m  SELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0
+Completed 200 OK in 6ms (Views: 1.6ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"  [["value", "Did Something"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "First"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"  [["value", "Next"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "nouns"
+  [1m[36mNoun Load (0.4ms)[0m  [1mSELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "adjectives"
+  [1m[36mAdjective Load (0.2ms)[0m  [1mSELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "predicates"
+  [1m[36mPredicate Load (0.2ms)[0m  [1mSELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0[0m
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Blue"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"  [["value", "Hat"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Did Something"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"  [["value", "First"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Next"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "nouns"[0m
+  [1m[35mNoun Load (0.2ms)[0m  SELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "adjectives"[0m
+  [1m[35mAdjective Load (0.1ms)[0m  SELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "predicates"[0m
+  [1m[35mPredicate Load (0.1ms)[0m  SELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 1.0ms)
+  [1m[36m (1.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"  [["value", "Did Something"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "First"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"  [["value", "Next"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "nouns"
+  [1m[36mNoun Load (0.2ms)[0m  [1mSELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "adjectives"
+  [1m[36mAdjective Load (0.2ms)[0m  [1mSELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "predicates"
+  [1m[36mPredicate Load (0.1ms)[0m  [1mSELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0[0m
+Completed 200 OK in 5ms (Views: 1.3ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (0.4ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (4.9ms)[0m  [1mDROP TABLE "adjectives"[0m
+  [1m[35m (4.4ms)[0m  CREATE TABLE "adjectives" ("id" serial primary key, "value" character varying(255)) 
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "firsts"[0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "firsts" ("id" serial primary key, "value" character varying(255)) 
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "nexts"[0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "nexts" ("id" serial primary key, "value" character varying(255)) 
+  [1m[36m (1.6ms)[0m  [1mDROP TABLE "nouns"[0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "nouns" ("id" serial primary key, "value" character varying(255), "is_proper" boolean DEFAULT 'f') 
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "particles"[0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "particles" ("id" serial primary key, "value" character varying(255), "is_singular" boolean DEFAULT 't') 
+  [1m[36m (1.8ms)[0m  [1mDROP TABLE "predicates"[0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "predicates" ("id" serial primary key, "value" character varying(255)) 
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE "superlatives" ("id" serial primary key, "value" character varying(255)) [0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "verbs" ("id" serial primary key, "value" character varying(255)) 
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140908071051')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140908065010')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Blue"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"  [["value", "Hat"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Did Something"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"  [["value", "First"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Next"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "nouns"[0m
+  [1m[35mNoun Load (0.5ms)[0m  SELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 13ms (Views: 7.7ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"  [["value", "Did Something"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "First"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"  [["value", "Next"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "nouns"
+  [1m[36mNoun Load (0.2ms)[0m  [1mSELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0[0m
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Blue"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"  [["value", "Hat"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Did Something"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"  [["value", "First"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Next"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "nouns"[0m
+  [1m[35mNoun Load (0.2ms)[0m  SELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"  [["value", "Blue"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Hat"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"  [["value", "Did Something"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "firsts" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "First"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "nexts" ("value") VALUES ($1) RETURNING "id"  [["value", "Next"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#generate as HTML
+  Parameters: {"type"=>"listicle"}
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "nouns"
+  [1m[36mNoun Load (0.2ms)[0m  [1mSELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0[0m
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "adjectives" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Blue"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "nouns" ("value") VALUES ($1) RETURNING "id"  [["value", "Hat"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "predicates" ("value") VALUES ($1) RETURNING "id"[0m  [["value", "Did Something"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeController#index as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "nouns"[0m
+  [1m[35mNoun Load (0.2ms)[0m  SELECT  "nouns".* FROM "nouns"   ORDER BY "nouns"."id" ASC LIMIT 1 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "adjectives"[0m
+  [1m[35mAdjective Load (0.1ms)[0m  SELECT  "adjectives".* FROM "adjectives"   ORDER BY "adjectives"."id" ASC LIMIT 1 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "predicates"[0m
+  [1m[35mPredicate Load (0.2ms)[0m  SELECT  "predicates".* FROM "predicates"   ORDER BY "predicates"."id" ASC LIMIT 1 OFFSET 0
+Completed 200 OK in 7ms (Views: 1.3ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by HomeController#about as HTML
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m

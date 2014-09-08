@@ -6,13 +6,21 @@
       </div>
       <div class="form-group">
         <div class="input-group radio-button">
-          <%= label_tag 'listicle','', for: 'whathappens', class: 'col-md-6' do %>
-              <%= radio_button_tag('whathappens', 'false',!@whathappens) %>
+          <%= label_tag 'listicle','', for: 'headline_type', class: 'col-md-6' do %>
+              <%= radio_button_tag('headline_type', 'listicle', 'listicle' == @current_val) %>
               <strong>Listicle</strong>
           <% end %>
-          <%= label_tag 'whathappens', '',for: 'whathappens', class: 'col-md-6' do %>
-              <%= radio_button_tag('whathappens', 'true', @whathappens) %>
-              <strong>What Happens Next...</strong>
+          <%= label_tag 'whathappens', '',for: 'headline_type', class: 'col-md-6' do %>
+              <%= radio_button_tag('headline_type', 'whathappens', 'whathappens' == @current_val) %>
+              <strong>What Happened Next...</strong>
+          <% end %>
+          <%= label_tag 'watchas', '',for: 'headline_type', class: 'col-md-6' do %>
+              <%= radio_button_tag('headline_type', 'watchas', 'watchas' == @current_val) %>
+              <strong>Watch As</strong>
+          <% end %>
+          <%= label_tag 'dontwanna', '',for: 'headline_type', class: 'col-md-6' do %>
+              <%= radio_button_tag('headline_type', 'dontwanna', 'dontwanna' == @current_val) %>
+              <strong>You Don't Want To ___ This ___</strong>
           <% end %>
         </div>
           <%= submit_tag "Generate!", class: 'btn btn-lg' %>

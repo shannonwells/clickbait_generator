@@ -33,12 +33,19 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
 
 gem 'twitter-bootstrap-rails'
+
+# Compiles assets for heroku
 gem 'rails_12factor', group: :production
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :development, :test do
+  gem 'rspec-rails'
+end
+
 group :test do
-  gem 'rspec'
+  gem 'nyan-cat-formatter'
 end
