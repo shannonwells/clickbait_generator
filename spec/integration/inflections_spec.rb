@@ -5,6 +5,8 @@ describe 'inflections' do
   it "pluralizing should DTRT" do
     expect("Passer By".pluralize).to eql "Passers By"
     expect("Little Girl".pluralize).to eql "Little Girls"
+    expect("White Person".pluralize).to eql "White People"
+    expect("Puppy".pluralize).to eql "Puppies"
   end
 
   it 'verbs should DTRT' do
