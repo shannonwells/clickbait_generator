@@ -29,5 +29,6 @@ Examples:
     $ clickbait.rb -w
     A Dog Found A Couple of Old Oak Slabs. What Happened Next Will Make You Wish You 
     Could Demand That Two Minutes of Your Life Back.
-    
+
+To see it in action, see http://clickbaitgenerator.herokuapp.com    
   
