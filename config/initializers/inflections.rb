@@ -9,7 +9,7 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.irregular 'person', 'people'
 #   inflect.uncountable %w( fish sheep )
   inflect.plural /\APasser By\Z/i, 'Passers By'
-  inflect.plural /\A(\w+) (.*[at|from|to|for|by|with|around|above|below|into])\Z/i, '\1s \2'
+  inflect.plural /\A(\w+) ([at|from|to|for|by|with|around|above|below|into])\Z/i, '\1s \2'
   inflect.plural /\ABe ([\w ]+)\Z/i, 'Is \1'
 end
 

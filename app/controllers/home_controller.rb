@@ -41,27 +41,29 @@ class HomeController < ApplicationController
         "The #{items} #{adj} #{noun.value.pluralize} That #{pred}".html_safe
       when 'watchas'
         noun2 = Noun.limit(1).offset(rand(num_nouns)).first
+        num_adj = Adjective.count
+        adj = Adjective.limit(1).offset(rand(num_adj)).first.value
         if  noun2.is_proper
           particle = ''
         else
           particle = Particle.limit(1).offset(rand(num_particles)).first.value
-          particle = 'An' if particle == 'A' && noun.value.match(/\A[aeiouh]/i)
+          particle = 'An' if particle == 'A' && adj.match(/\A[aeiouh]/i)
         end
 
         num_verbs = Verb.count
-        verb = Verb.limit(1).offset(rand(num_verbs)).first.value.pluralize
+        verb_string = Verb.limit(1).offset(rand(num_verbs)).first.value.downcase
+        sub_obj = verb_string.verb.conjugate(subject: noun.value).titleize
+        ap verb_string: sub_obj
 
-        num_adj = Adjective.count
-        adj = Adjective.limit(1).offset(rand(num_adj)).first.value
-        "Watch As This #{noun.value} #{verb} #{particle} #{adj} #{noun2.value}"
+        "Watch As This #{sub_obj} #{particle} #{adj} #{noun2.value}"
       when 'dontwanna'
         num_adj = Adjective.count
         adj = Adjective.limit(1).offset(rand(num_adj)).first.value
 
         num_verbs = Verb.count
-        verb = Verb.limit(1).offset(rand(num_verbs)).first.value
+        verb_string = Verb.limit(1).offset(rand(num_verbs)).first.value
 
-        "You Don't Want To #{verb} This #{adj} #{noun.value}"
+        "You Don't Want To #{verb_string} This #{adj} #{noun.value}"
     end
 
   end
