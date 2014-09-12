@@ -41,7 +41,7 @@ class HomeController < ApplicationController
 
   def listicle
     items = rand(99)+2
-    num_nouns = Noun.count
+    num_nouns = Noun.where(is_proper: false).count
     noun = Noun.where(is_proper: false).limit(1).offset(rand(num_nouns)).first
     num_adj = Adjective.count
     adj = Adjective.limit(1).offset(rand(num_adj)).first.value
@@ -78,7 +78,7 @@ class HomeController < ApplicationController
   end
 
   def dontwanna
-    num_nouns = Noun.count
+    num_nouns = Noun.where(is_proper: false).count
     noun = Noun.where(is_proper: false).limit(1).offset(rand(num_nouns)).first
     num_adj = Adjective.count
     adj = Adjective.limit(1).offset(rand(num_adj)).first.value
@@ -91,7 +91,7 @@ class HomeController < ApplicationController
 
   def whyi
     num_nouns = Noun.count
-    noun = Noun.where(is_proper: false).limit(1).offset(rand(num_nouns)).first
+    noun = Noun.limit(1).offset(rand(num_nouns)).first
     num_adj = Adjective.count
     adj = Adjective.limit(1).offset(rand(num_adj)).first.value
 
