@@ -1,3 +1,3 @@
 class Particle < ActiveRecord::Base
-  validates_inclusion_of :value, in: %w(a some this)
+  validates_inclusion_of :value, in: %w(A Some This)
 end

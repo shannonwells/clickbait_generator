@@ -1,8 +1,8 @@
 require "rails_helper"
 
 describe HomeController, type: :controller do
-  before :all do
-    %w(A This Some).each { |p| Particle.create(value: p) }
+  before do
+    %w(A This Some).each { |p| Particle.create!(value: p) }
   end
 
   context 'GET index' do
@@ -24,8 +24,8 @@ describe HomeController, type: :controller do
       First.create(value: 'First')
       Next.create(value: 'Next')
     end
-    %w(whathappens listicle ).each do |type|
-      let(:post_params) { {type: type} }
+    %w(whathappens listicle watchas dontwanna).each do |type|
+      let(:post_params) { {headline_type: type} }
       subject { post 'generate', post_params }
 
       it { should have_http_status :success }
@@ -34,13 +34,36 @@ describe HomeController, type: :controller do
     end
 
     context 'proper nouns' do
-
+      before do
+        Adjective.create(value: 'Blue')
+        Noun.create(value: 'Harry', is_proper: true)
+        Predicate.create(value: 'Did Something')
+        First.create(value: 'First')
+        Next.create(value: 'Next')
+        Verb.create(value: 'Verb')
+      end
+      subject {post 'generate', headline_type: 'dontwanna'}
+      it 'listicle should fail because only proper nouns' do
+        expect{get 'index'}.to raise_exception
+      end
+      it 'dontwanna should fail because only proper nouns' do
+        expect{subject}.to raise_exception
+      end
+      it 'works' do
+        Noun.create(value: "Hat")
+        expect{subject}.not_to raise_exception
+      end
     end
     context 'whathappens' do
       before do
         Noun.create(value: 'Hat')
         First.create(value: 'First')
         Next.create(value: 'Next')
+      end
+      subject { post 'generate', headline_type: 'whathappens'}
+      it 'works' do
+        subject
+        expect(assigns(:headline)).to match /Hat First. What Happened Next Next/
       end
     end
   end
