@@ -5,6 +5,9 @@ A clickbait headline generator, like those silly things you see on teh internets
 You can run clickbait.rb from the top level directory (this is the original script), or you can run it as a Rails app.
 
 ### Rails App
+
+To see it in action, see http://clickbaitgenerator.herokuapp.com    
+
 This has multiple types of clickbait headlines to choose from, and it also will properly inflect verbs and nouns, unlike the CLI.
 If you run it as a Rails app, be sure to run
 
@@ -30,5 +33,3 @@ Examples:
     A Dog Found A Couple of Old Oak Slabs. What Happened Next Will Make You Wish You 
     Could Demand That Two Minutes of Your Life Back.
 
-To see it in action, see http://clickbaitgenerator.herokuapp.com    
-  
