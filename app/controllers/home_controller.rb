@@ -52,8 +52,8 @@ class HomeController < ApplicationController
   end
 
   def watchas
-    num_nouns = Noun.count
-    noun = Noun.limit(1).offset(rand(num_nouns)).first
+    num_nouns = Noun.where(is_agent: true).count
+    noun = Noun.where(is_agent: true).limit(1).offset(rand(num_nouns)).first
     noun2 = Noun.limit(1).offset(rand(num_nouns)).first
     num_adj = Adjective.count
     adj = Adjective.limit(1).offset(rand(num_adj)).first.value
@@ -62,7 +62,7 @@ class HomeController < ApplicationController
     verb_string = Verb.limit(1).offset(rand(num_verbs)).first.value.downcase
     sub_obj = verb_string.verb.conjugate(subject: noun.value).titleize
 
-    "Watch As #{sub_obj} #{set_particle(noun.value,noun)} #{adj} #{noun2.value}"
+    "Watch As This #{sub_obj} #{set_particle(noun.value,noun)} #{adj} #{noun2.value}"
   end
 
   def set_particle(adj, noun)
