@@ -7,7 +7,7 @@ class HomeController < ApplicationController
 
   def generate
     @current_val = params[:headline_type]
-    @headline = new_headline
+    @headline = new_headline.html_safe
     render :index
   end
 
@@ -19,7 +19,7 @@ class HomeController < ApplicationController
   end
 
   def whathappens
-    num_nouns = Noun.count
+    num_nouns = Noun.where(is_agent: true).count
     @type = params[:headline_type]
     # TODO: Make all nouns singular in the DB
 
@@ -28,7 +28,7 @@ class HomeController < ApplicationController
 
     num_next = Next.count
     next_clause = Next.limit(1).offset(rand(num_next)).first.value
-    noun = Noun.limit(1).offset(rand(num_nouns)).first
+    noun = Noun.where(is_agent: true).limit(1).offset(rand(num_nouns)).first
 
     if rand(num_nouns)%9 == 0
       last_half = "THANKS, OBAMA."
@@ -48,7 +48,7 @@ class HomeController < ApplicationController
 
     num_pred = Predicate.count
     pred = Predicate.limit(1).offset(rand(num_pred)).first.value
-    "The #{items} #{adj} #{noun.value.pluralize} That #{pred}".html_safe
+    "The #{items} #{adj} #{noun.value.pluralize} That #{pred}"
   end
 
   def watchas
@@ -57,13 +57,12 @@ class HomeController < ApplicationController
     noun2 = Noun.limit(1).offset(rand(num_nouns)).first
     num_adj = Adjective.count
     adj = Adjective.limit(1).offset(rand(num_adj)).first.value
-    particle = set_particle(adj, noun2)
 
     num_verbs = Verb.count
     verb_string = Verb.limit(1).offset(rand(num_verbs)).first.value.downcase
     sub_obj = verb_string.verb.conjugate(subject: noun.value).titleize
 
-    "Watch As This #{sub_obj} #{particle} #{adj} #{noun2.value}"
+    "Watch As #{sub_obj} #{set_particle(noun.value,noun)} #{adj} #{noun2.value}"
   end
 
   def set_particle(adj, noun)

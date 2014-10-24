@@ -5,13 +5,16 @@ body {
   background: #000000;
   color: #ffe2ea;
   a {
-    color: #ba0071;
-    &:hover { color: #ff00a1; }
+    color: #ba1800;
+    &:hover { color: #ff7c00; }
+//    color: #ba0071;
+//    &:hover { color: #ff00a1; }
   }
   .container-fluid {
     margin: 0 auto;
     padding: 20px;
-    background: rgb(121, 200, 199);
+    background: rgb(255, 154, 46);
+//    background: rgb(121, 200, 199);
     color: #000000;
 
     div.radio-button {
