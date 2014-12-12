@@ -2,33 +2,45 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-  background: #000000;
-  color: #ffe2ea;
   a {
-    color: #ba1800;
-    &:hover { color: #ff7c00; }
-//    color: #ba0071;
-//    &:hover { color: #ff00a1; }
+
+    color: #ba1800;  // Winter
+
+//    &:hover { color: #ff7c00; }  //Halloween
+
+// Off season
+//  color: #ba0071;
+//  &:hover { color: #ff00a1; }
   }
   .container-fluid {
     margin: 0 auto;
     padding: 20px;
-    background: rgb(255, 154, 46);
+//    background: black;  // Off season
+    background: #ba1800;  // Winter
+    color: white;
+
+// Off season
 //    background: rgb(121, 200, 199);
-    color: #000000;
+//    color: black;
 
     div.radio-button {
-        label {
-          margin-right: 15px;
-          font-size: 16px;
-        }
+      label {
+        margin-right: 15px;
+        font-size: 16px;
+      }
     }
   }
-    .footer {
-      margin: 10px 0 0 0;
-      height: 200px;
-      padding: 10px;
-      .left { float: left; }
-      .nav-bottom { padding: 0 10px; }
+  .footer {
+    background-color: black;
+    margin: 10px 0 0 0;
+    height: 200px;
+    padding: 10px;
+    .left {
+      float: left;
     }
+    .nav-bottom {
+      padding: 0 10px;
+    }
+  }
+
 }

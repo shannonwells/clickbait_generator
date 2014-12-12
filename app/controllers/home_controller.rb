@@ -6,6 +6,9 @@ class HomeController < ApplicationController
   end
 
   def generate
+    if (request.get?)
+      redirect_to :root and return
+    end
     @current_val = params[:headline_type]
     @headline = new_headline.html_safe
     render :index
@@ -61,8 +64,8 @@ class HomeController < ApplicationController
     num_verbs = Verb.count
     verb_string = Verb.limit(1).offset(rand(num_verbs)).first.value.downcase
     sub_obj = verb_string.verb.conjugate(subject: noun.value).titleize
-
-    "Watch As This #{sub_obj} #{set_particle(noun.value,noun)} #{adj} #{noun2.value}"
+    particle = noun.is_proper? ? '' : 'This'
+    "Watch As #{particle} #{sub_obj} #{set_particle(noun.value,noun)} #{adj} #{noun2.value}"
   end
 
   def set_particle(adj, noun)
@@ -85,7 +88,7 @@ class HomeController < ApplicationController
     num_verbs = Verb.count
     verb_string = Verb.limit(1).offset(rand(num_verbs)).first.value
 
-    "You Don't Want To #{verb_string} This #{adj} #{noun.value}"
+    " #{verb_string} This #{adj} #{noun.value}"
   end
 
   def whyi

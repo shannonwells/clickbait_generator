@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get 'index'
     get 'about'
     post 'generate'
+    get 'generate'
   end
 
   root 'home#index'
