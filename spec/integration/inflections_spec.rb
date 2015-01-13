@@ -14,7 +14,7 @@ describe 'inflections' do
   end
 
   it 'verbs should DTRT' do
-    expect("Be".verb.conjugate(:subject => "Girl").titleize).to eql "Girl Is"
+    expect("be".verb.conjugate(:subject => "girl").titleize).to eql "Girl Is"
 
     # expect("Be Rescued From".verb.conjugate(subject: "Girl")).to eql "Girl Is Rescued From"
     # expect("Be Rescued From".verb.conjugate(subject: 'You')).to eql "You Are Rescued From"

@@ -1,14 +1,26 @@
-#main {
+#main, #main-winter, #main-valentines {
   -webkit-animation: main 10s 5s infinite ease; /* Chrome, Safari, Opera */
 }
 /* Chrome, Safari, Opera */
-@-webkit-keyframes main {
+@-webkit-keyframes main-valentines {
+    0% {background: #ffe2ea;}
+    50% {background: #ff00a1;}
+    100% {background: #ba000c;}
+}
+/* Standard syntax */
+@keyframes main-valentines {
+  from {background: #ffe2ea;}
+  to {background: #ba000c;}
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes main-winter-switch {
     0% {background: #ba000c;}
     50% {background: #0038b8;}
     100% {background: #ba000c;}
 }
 /* Standard syntax */
-@keyframes main {
+@keyframes main-winter-switch {
   from {background: #0038b8;}
   to {background: #ba000c;}
 }
