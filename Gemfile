@@ -28,11 +28,8 @@ gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
 # Use unicorn as the app server
 gem 'unicorn'
-
-gem 'twitter-bootstrap-rails'
 gem 'verbs'
 # Compiles assets for heroku
 gem 'rails_12factor', group: :production

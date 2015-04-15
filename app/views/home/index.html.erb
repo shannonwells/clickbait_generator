@@ -1,11 +1,8 @@
 <h4>This is Clickbait Generator.</h4>
 <div class="span12">
   <%= form_tag '/home/generate', class: 'form-inline' do |f| %>
-      <div class="row">
-        <p class='col-12'>Pick a Style:</p>
-      </div>
       <div class="form-group">
-        <div class="input-group radio-button">
+        <div class="form-group radio-button">
           <%= label_tag 'listicle','', for: 'headline_type', class: 'col-md-6' do %>
               <%= radio_button_tag('headline_type', 'listicle', 'listicle' == @current_val) %>
               <strong>Listicle</strong>
@@ -16,24 +13,26 @@
           <% end %>
           <%= label_tag 'watchas', '',for: 'headline_type', class: 'col-md-6' do %>
               <%= radio_button_tag('headline_type', 'watchas', 'watchas' == @current_val) %>
-              <strong>Watch As</strong>
+              <strong>Watch As . . .</strong>
           <% end %>
           <%= label_tag 'dontwanna', '',for: 'headline_type', class: 'col-md-6' do %>
               <%= radio_button_tag('headline_type', 'dontwanna', 'dontwanna' == @current_val) %>
-              <strong>You Don't Want To</strong>
+              <strong>You Don't Want To . . .</strong>
           <% end %>
           <%= label_tag 'whyi', '',for: 'headline_type', class: 'col-md-6' do %>
               <%= radio_button_tag('headline_type', 'whyi', 'whyi' == @current_val) %>
-              <strong>Why I</strong>
+              <strong>Why I . . .</strong>
           <% end %>
         </div>
-          <%= submit_tag "Generate!", class: 'btn btn-lg' %>
-
       </div>
+
+      <div class="btn btn-warning clickbaitme">No, Clickbait ME</div>
+      <div><%= submit_tag "Clickbait Me!", class: 'btn' %></div>
+
+
   <% end %>
 </div>
 <div class="row">
-  <h1 class='span12'><%= @headline %> </h1>
+  <h1 class='span12 headline'><%= @headline.html_safe %></h1>
 </div>
-<div><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://clickbaitgenerator.herokuapp.com" data-text="<%= @headline %>" data-via="ShannonEWells" data-size="large" data-count="none" data-hashtags="clickbaitgenerator">:P</a></div>
-
+<div><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://clickbaitgenerator.herokuapp.com" data-text="<%= @headline.html_safe %>" data-via="ShannonEWells" data-size="large" data-count="none" data-hashtags="clickbaitgenerator">:P</a></div>

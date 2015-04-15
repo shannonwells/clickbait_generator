@@ -6,11 +6,8 @@ class HomeController < ApplicationController
   end
 
   def generate
-    if (request.get?)
-      redirect_to :root and return
-    end
-    @current_val = params[:headline_type]
-    @headline = new_headline.html_safe
+    @current_val = params[:headline_type] || 'listicle'
+    @headline = new_headline
     render :index
   end
 
@@ -23,7 +20,7 @@ class HomeController < ApplicationController
 
   def whathappens
     num_nouns = Noun.where(is_agent: true).count
-    @type = params[:headline_type]
+    @type = params[:headline_type]  # fixme, use an instance variable instead of reading :headline_type
     # TODO: Make all nouns singular in the DB
 
     num_firsts = First.count
@@ -43,14 +40,17 @@ class HomeController < ApplicationController
   end
 
   def listicle
-    items = rand(99)+2
-    num_nouns = Noun.where(is_proper: false).count
-    noun = Noun.where(is_proper: false).limit(1).offset(rand(num_nouns)).first
-    num_adj = Adjective.count
-    adj = Adjective.limit(1).offset(rand(num_adj)).first.value
+    items = rand(99)+2  # generate number of items
+    num_nouns = Noun.where(is_proper: false).count # how many non-proper nouns do we have
+    noun = Noun.where(is_proper: false).limit(1).offset(rand(num_nouns)).first  # pick one, randomly
+    num_adj = Adjective.count # how many adjectives do we have
+    adj = Adjective.limit(1).offset(rand(num_adj)).first.value # pick one randomly
 
+    # pick a random predicate
     num_pred = Predicate.count
     pred = Predicate.limit(1).offset(rand(num_pred)).first.value
+
+    # construct sentence
     "The #{items} #{adj} #{noun.value.pluralize} That #{pred}"
   end
 
@@ -107,4 +107,5 @@ class HomeController < ApplicationController
 
     "#{method} #{sub_obj} #{set_particle(adj,noun)} #{adj} #{noun.value}"
   end
+
 end
