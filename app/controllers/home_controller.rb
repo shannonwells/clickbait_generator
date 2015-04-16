@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
+
   HEADLINE_TYPES = %w(whathappens listicle watchas dontwanna whyi)
+  respond_to :js, only: [:generate]
   def index
     @current_val = 'listicle'
     @headline = new_headline
@@ -8,7 +10,7 @@ class HomeController < ApplicationController
   def generate
     @current_val = params[:headline_type] || 'listicle'
     @headline = new_headline
-    render :index
+    respond_with @headline
   end
 
   def new_headline

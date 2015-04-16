@@ -1,14 +1,9 @@
-$(".clickbaitme").click(function(){
-    $.get({
-        url: 'generate',
-        success: CBGshowHeadline
-    });
-});
-
 function CBGgetNewHeadline() {
-
+    var headline_type = $("input[name=headline_type]:checked").attr('value');
+    $.get('/home/generate','headline_type=' + headline_type)
 }
 
-function CBGshowHeadline(xhr) {
-    $(".headline").text('FOOBAR')
-}
+window.onload = function(){
+    $('.clickbaitme').click(CBGgetNewHeadline);
+};
+
