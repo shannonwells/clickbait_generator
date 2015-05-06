@@ -1,1 +1,3 @@
-$("h1.headline").text("<%= @headline.html_safe %>")
+$("#headline").text("<%= @headline.html_safe %>");
+$("#init-twit").html('<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://clickbaitgenerator.herokuapp.com" data-text="<%= @headline.html_safe %>" data-via="ShannonEWells" data-size="large" data-count="none" data-hashtags="clickbaitgenerator">:P</a>');
+twttr.widgets.load();

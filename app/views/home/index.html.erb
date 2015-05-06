@@ -1,7 +1,7 @@
 <h4>This is Clickbait Generator.</h4>
 <div class="span12">
   <%= form_tag '/home/generate', class: 'form-inline' do |f| %>
-      <div class="form-group">
+      <div id='clickbait-type' class="form-group">
         <div class="form-group radio-button">
           <%= label_tag 'listicle','', for: 'headline_type', class: 'col-md-6' do %>
               <%= radio_button_tag('headline_type', 'listicle', 'listicle' == @current_val) %>
@@ -25,10 +25,8 @@
           <% end %>
         </div>
       </div>
-      <div class="pull-left btn btn-info clickbaitme">Clickbait me</div>
+      <div id='clickbaitme' class="pull-left btn btn-info">CLICKBAIT ME</div>
   <% end %>
 </div>
-<div class="row">
-  <h1 class='span12 headline'><%= @headline.html_safe %></h1>
-</div>
-<div><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://clickbaitgenerator.herokuapp.com" data-text="<%= @headline.html_safe %>" data-via="ShannonEWells" data-size="large" data-count="none" data-hashtags="clickbaitgenerator">:P</a></div>
+<h1 id='headline'><%= @headline.html_safe %></h1>
+<div id="init-twit"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://clickbaitgenerator.herokuapp.com" data-text="<%= @headline.html_safe %>" data-via="ShannonEWells" data-size="large" data-count="none">:P</a></div>

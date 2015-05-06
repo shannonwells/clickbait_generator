@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-  a {
+  a, #clickbaitme {
     color: #ffe2ea;  // Off season
 //    color: #ba1800;  // Winter
 
@@ -42,5 +42,12 @@ body {
       padding: 0 10px;
     }
   }
-  input.btn { background-color: white; }
+  .btn {
+    background-color: white;
+  }
+  #clickbaitme, #headline { clear: both;}
+  #headline { margin: 1em 0; }
+  #init-twit {
+    height: 50px;
+  }
 }

@@ -4,6 +4,6 @@ function CBGgetNewHeadline() {
 }
 
 window.onload = function(){
-    $('.clickbaitme').click(CBGgetNewHeadline);
+    $('#clickbaitme').click(CBGgetNewHeadline);
 };
 
