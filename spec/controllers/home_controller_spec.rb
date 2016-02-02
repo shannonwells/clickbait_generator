@@ -28,11 +28,11 @@ describe HomeController, type: :controller do
       end
 
       %w(whathappens listicle watchas dontwanna).each do |type|
-        let(:post_params) { {headline_type: type} }
+        let(:post_params) { {headline_type: type, format: :js} }
         subject { post 'generate', post_params }
 
         it { should have_http_status :success }
-        it { should render_template :index }
+        it { should render_template :generate }
 
       end
     end
@@ -45,16 +45,15 @@ describe HomeController, type: :controller do
         Next.create(value: 'Next')
         Verb.create(value: 'Verb')
       end
-      subject { post 'generate', headline_type: 'dontwanna' }
       it 'listicle should fail because only proper nouns' do
-        expect { get 'index' }.to raise_exception
+        expect { get 'generate', headline_type: 'listicle', format: :js }.to raise_exception
       end
       it 'dontwanna should fail because only proper nouns' do
-        expect { subject }.to raise_exception
+        expect { post 'generate', headline_type: 'dontwanna', format: :js  }.to raise_exception
       end
       it 'works' do
         Noun.create(value: "Hat")
-        expect { subject }.not_to raise_exception
+        expect { post 'generate', headline_type: 'dontwanna', format: :js  }.not_to raise_exception
       end
     end
     context 'whathappens' do
@@ -66,10 +65,10 @@ describe HomeController, type: :controller do
         Predicate.create(value: 'Did Something')
         Verb.create(value: 'Smoke')
       end
-      subject { post 'generate', headline_type: 'whathappens' }
+      subject { post 'generate', headline_type: 'whathappens', format: :js }
       it 'works' do
         subject
-        expect(assigns(:headline)).to match /Lady First. What Happened Next Next/
+        expect(assigns(:headline)).to match /Lady. What Happened Next/
       end
     end
   end

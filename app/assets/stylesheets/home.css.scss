@@ -1,37 +1,27 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'variables';
+
 body {
+  background: $contrastcolor;
+  color: $bgcolor;
+
   a, #clickbaitme {
-    color: #ffe2ea;  // Off season
-//    color: #ba1800;  // Winter
-
-//    &:hover { color: #ff7c00; }  //Halloween
-
-// Off season
-  color: #ba0071;
-  &:hover { color: #ff00a1; }
+    color: $linkcolor;
+    &:hover {
+      color: $hovercolor;
+    }
   }
-  .container-fluid {
-    margin: 0 auto;
-    padding: 20px;
-    background: black;  // Off season
-//    background: #ba1800;  // Winter, Valentines
-//    color: white;
 
-// Off season
-    background: rgb(121, 200, 199);
-    color: black;
-
-    div.radio-button {
-      label {
-        margin-right: 15px;
-        font-size: 16px;
-      }
+  div.radio-button {
+    label {
+      margin-right: 15px;
+      font-size: 16px;
     }
   }
   .footer {
-    background-color: black;
+    background-color: $bgcolor;
     margin: 0;
     height: 200px;
     padding: 20px 10px;
@@ -42,12 +32,16 @@ body {
       padding: 0 10px;
     }
   }
-  .btn {
-    background-color: white;
+  #clickbaitme {
+    color: $buttontext;
+    font-weight: bold;
+    height: 100px;
+    //width: 100px;
+    font-size: 150%;
+    background-color: $buttonbg;
   }
-  #clickbaitme, #headline { clear: both;}
-  #headline { margin: 1em 0; }
   #init-twit {
     height: 50px;
   }
 }
+

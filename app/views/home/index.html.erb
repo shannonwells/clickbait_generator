@@ -1,32 +1,24 @@
-<h4>This is Clickbait Generator.</h4>
-<div class="span12">
-  <%= form_tag '/home/generate', class: 'form-inline' do |f| %>
-      <div id='clickbait-type' class="form-group">
-        <div class="form-group radio-button">
-          <%= label_tag 'listicle','', for: 'headline_type', class: 'col-md-6' do %>
-              <%= radio_button_tag('headline_type', 'listicle', 'listicle' == @current_val) %>
-              <strong>Listicle</strong>
-          <% end %>
-          <%= label_tag 'whathappens', '',for: 'headline_type', class: 'col-md-6' do %>
-              <%= radio_button_tag('headline_type', 'whathappens', 'whathappens' == @current_val) %>
-              <strong>What Happened Next</strong>
-          <% end %>
-          <%= label_tag 'watchas', '',for: 'headline_type', class: 'col-md-6' do %>
-              <%= radio_button_tag('headline_type', 'watchas', 'watchas' == @current_val) %>
-              <strong>Watch As . . .</strong>
-          <% end %>
-          <%= label_tag 'dontwanna', '',for: 'headline_type', class: 'col-md-6' do %>
-              <%= radio_button_tag('headline_type', 'dontwanna', 'dontwanna' == @current_val) %>
-              <strong>You Don't Want To . . .</strong>
-          <% end %>
-          <%= label_tag 'whyi', '',for: 'headline_type', class: 'col-md-6' do %>
-              <%= radio_button_tag('headline_type', 'whyi', 'whyi' == @current_val) %>
-              <strong>Why I . . .</strong>
-          <% end %>
-        </div>
+<h4 class="text-center">This is Clickbait Generator.</h4>
+<h1 class='text-center' id='headline'><%= @headline.html_safe %></h1>
+<div class="row">
+  <%= form_tag '/home/generate' do |f| %>
+      <div id='clickbait-type' class="col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3 col-lg-3 col-md-3 col-sm-3 col-xs-4">
+        <ul class="list-unstyled">
+              <% %w(listicle whathappens dontwanna whyi).each do |htype| %>
+                <li><%= label_tag htype,'headline_type' do %>
+                  <%= radio_button_tag('headline_type', htype, htype == @current_val) %>
+                  <%= list_type_title htype %>
+                <% end %>
+                </li>
+              <% end %>
+            </ul>
       </div>
-      <div id='clickbaitme' class="pull-left btn btn-info">CLICKBAIT ME</div>
+      <div id='clickbaitme' class="col-md-2 col-sm-2 col-lg-2 col-xs-4">
+        <div>CLICK</div>
+        <div>(BAIT)</div>
+        <div>ME!</div>
+      </div>
   <% end %>
 </div>
-<h1 id='headline'><%= @headline.html_safe %></h1>
-<div id="init-twit"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://clickbaitgenerator.herokuapp.com" data-text="<%= @headline.html_safe %>" data-via="ShannonEWells" data-size="large" data-count="none">:P</a></div>
+
+<div class='text-center' id="init-twit"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://clickbaitgenerator.herokuapp.com" data-text="<%= @headline.html_safe %>" data-via="ShannonEWells" data-size="large" data-count="none">:P</a></div>

@@ -44,7 +44,8 @@ SEASONAL_PROPER_NOUNS={
 
 
   ['Cranky','Great', 'Funny','Weird','Silly','Dumb','Dangerous','Strange','Creepy','Funky','Hot','Cool','Breathtaking','Astonishing','Crazy','Insane','Radical','Gnarly','Grody','Amazing','Heartbreaking','Tragic','Pathetic','Joyous','Exciting','Unhealthy','Poisonous','Diseased','Time-Travelling','Terrifying','Horrifying','Irritating','Rude','Secret','Shameless','Stunning','Ancient','Alien','Boozy',"Mind-Boggling", "Barking Mad", "Loony", "Spectacular", "Gorgeous", "Filthy", "Dirty", "Combustible", "Irresistible", "Hoopy", "Alien", "Ancient", "Stunning", "Shameless",'Stinky','Fabulous','Record Breaking', 'Mind Numbing', 'Coma Inducing','Unbelievable','Incredible','Whiny','Adorable','Filthy Rich','Unbearable','Insufferable','Despicable','Heartwarming','Record-Breaking'].each do |a|
-    Adjective.find_or_create_by(value: a)
+    a = Adjective.find_or_create_by(value: a)
+    ap adj_errs: a.errors.full_messages unless a.persisted?
   end
 
 SEASONAL_ADJ = {

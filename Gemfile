@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.1.1'
+ruby '2.2.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0'
-# Use sqlite3 as the database for Active Record
+gem 'rails', '~>4.2'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -15,13 +14,15 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+gem 'spring', group: :development
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
 # Use unicorn as the app server
 gem 'unicorn'
 gem 'verbs'
+
 # Compiles assets for heroku
 gem 'rails_12factor', group: :production
 gem 'awesome_print'

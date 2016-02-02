@@ -16,38 +16,38 @@ ActiveRecord::Schema.define(version: 20140914182540) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "adjectives", force: true do |t|
+  create_table "adjectives", force: :cascade do |t|
     t.string "value"
   end
 
-  create_table "firsts", force: true do |t|
+  create_table "firsts", force: :cascade do |t|
     t.string "value"
   end
 
-  create_table "nexts", force: true do |t|
+  create_table "nexts", force: :cascade do |t|
     t.string "value"
   end
 
-  create_table "nouns", force: true do |t|
+  create_table "nouns", force: :cascade do |t|
     t.string  "value"
     t.boolean "is_proper", default: false
     t.boolean "is_agent",  default: false
   end
 
-  create_table "particles", force: true do |t|
+  create_table "particles", force: :cascade do |t|
     t.string  "value"
     t.boolean "is_singular", default: true
   end
 
-  create_table "predicates", force: true do |t|
+  create_table "predicates", force: :cascade do |t|
     t.string "value"
   end
 
-  create_table "superlatives", force: true do |t|
+  create_table "superlatives", force: :cascade do |t|
     t.string "value"
   end
 
-  create_table "verbs", force: true do |t|
+  create_table "verbs", force: :cascade do |t|
     t.string  "value"
     t.boolean "needs_agent", default: true
   end
