@@ -1,11 +1,11 @@
 <h4 class="text-center">This is Clickbait Generator.</h4>
 <h1 class='text-center' id='headline'><%= @headline.html_safe %></h1>
 <div class="row">
-  <%= form_tag '/home/generate' do |f| %>
+  <%= form_tag '/home/generate' do %>
       <div id='clickbait-type' class="col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3 col-lg-3 col-md-3 col-sm-3 col-xs-4">
         <ul class="list-unstyled">
               <% %w(listicle whathappens dontwanna whyi).each do |htype| %>
-                <li><%= label_tag htype,'headline_type' do %>
+                <li><%= label_tag "headline_type_#{htype}",'headline_type' do %>
                   <%= radio_button_tag('headline_type', htype, htype == @current_val) %>
                   <%= list_type_title htype %>
                 <% end %>
