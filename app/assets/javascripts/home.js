@@ -1,9 +1,19 @@
-function CBGgetNewHeadline() {
-    var headline_type = $("input[name=headline_type]:checked").attr('value');
-    $.get('/home/generate','headline_type=' + headline_type)
+function CBGgetNewHeadline(target) {
+    if (target.hasClass('active')) {
+        return;
+    }
+    var headlineType = $(this).getClass().split(' ')[1];
+    $.get('/home/generate',
+          'headline_type=' + headlineType,
+          onGetSuccess
+    );
+}
+
+function onGetSuccess(xhr) {
+    console.log(xhr);
 }
 
 window.onload = function(){
-    $('#clickbaitme').click(CBGgetNewHeadline);
+    $('#clickbait-buttons .btn-clickbait').click(CBGgetNewHeadline);
 };
 
