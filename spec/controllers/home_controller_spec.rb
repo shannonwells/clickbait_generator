@@ -56,22 +56,6 @@ describe HomeController, type: :controller do
         expect { post 'generate', headline_type: 'dontwanna', format: :js  }.not_to raise_exception
       end
     end
-    context 'whathappens' do
-      before do
-        Noun.create(value: 'Lady', is_agent: true)
-        First.create(value: 'First')
-        Next.create(value: 'Next')
-        Adjective.create(value: 'Blue')
-        Predicate.create(value: 'Did Something')
-        Verb.create(value: 'Smoke')
-      end
-      subject { post 'generate', headline_type: 'whathappens', format: :js }
-      it 'works' do
-        subject
-        expect(assigns(:headline)).to match /Lady/
-        expect(assigns(:headline)).to match /What Happened Next/
-      end
-    end
   end
 
   context 'GET about' do
