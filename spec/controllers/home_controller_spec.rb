@@ -68,7 +68,8 @@ describe HomeController, type: :controller do
       subject { post 'generate', headline_type: 'whathappens', format: :js }
       it 'works' do
         subject
-        expect(assigns(:headline)).to match /Lady. What Happened Next/
+        expect(assigns(:headline)).to match /Lady/
+        expect(assigns(:headline)).to match /What Happened Next/
       end
     end
   end
