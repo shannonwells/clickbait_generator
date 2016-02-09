@@ -6,7 +6,7 @@
   <div id='clickbait-buttons'>
       <% %w(listicle whathappens dontwanna whyi).each do |htype| %>
           <% activeclass = (htype==@current_val) ? 'active' : ''%>
-          <span class="btn-clickbait <%= activeclass %> <%= htype %>">
+          <span id="<%= htype %>" class="btn-clickbait <%= activeclass %> ">
             <%= list_type_title htype %>
           </span>
       <% end %>

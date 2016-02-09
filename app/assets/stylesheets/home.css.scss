@@ -6,7 +6,7 @@
 body {
   background: $bgcolor;
   a {  color: $linkcolor;  }
-  h1 { font-family: Impact, Verdana, Arial, Helvetica, sans-serif}
+  h1 { font-weight: bold;}
   .indent-sm { margin-left: 10px; }
   #topbar {
     background-color: $bgcolor;
@@ -46,18 +46,12 @@ body {
         	display:inline-block;
         	cursor:pointer;
         	color:#ffffff;
-        	//font-size:15px;
-        	//font-weight:bold;
         	padding:6px 24px;
         	text-decoration:none;
         	text-shadow:0px -1px 0px #c70067;
         }
         .btn-clickbait:hover {
         	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, $buttonbg), color-stop(1, $button-grad));
-        	background:-moz-linear-gradient(top, $buttonbg 5%, $button-grad 100%);
-        	background:-webkit-linear-gradient(top, $buttonbg 5%, $button-grad 100%);
-        	background:-o-linear-gradient(top, $buttonbg 5%, $button-grad 100%);
-        	background:-ms-linear-gradient(top, $buttonbg 5%, $button-grad 100%);
         	background:linear-gradient(to bottom, $buttonbg 5%, $button-grad 100%);
         	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$buttonbg', endColorstr='$button-grad',GradientType=0);
         	background-color:$buttonbg;
