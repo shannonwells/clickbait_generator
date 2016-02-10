@@ -30,6 +30,8 @@ gem 'awesome_print'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'active_model_serializers'
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 group :development, :test do

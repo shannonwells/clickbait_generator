@@ -5,6 +5,8 @@ class Clickbait
   include ActiveModel::Model
   include ActiveModel::Validations
 
+  alias :read_attribute_for_serialization :send
+
   TYPES = %w(whathappens listicle watchas dontwanna whyi)
 
   validates :type, inclusion: { in: TYPES }
