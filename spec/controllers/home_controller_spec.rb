@@ -11,9 +11,18 @@ describe HomeController, type: :controller do
       Noun.create(value: 'Hat')
       Predicate.create(value: 'Did Something')
     end
-    subject { get 'index' }
-
-    it { should have_http_status :success }
+    context "format=html" do
+      subject { get 'index' }
+      it { should have_http_status :success }
+    end
+    context "format=json" do
+      subject(:request) { get :index, format: :json }
+      before do
+        subject
+      end
+      it { should have_http_status :success }
+      it { expect(response.content_type).to eql 'application/json' }
+    end
   end
 
   context 'POST generate' do
