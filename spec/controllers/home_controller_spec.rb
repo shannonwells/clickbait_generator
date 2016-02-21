@@ -46,30 +46,14 @@ describe HomeController, type: :controller do
         Verb.create(value: 'Verb')
       end
       it 'listicle should fail because only proper nouns' do
-        expect { get 'generate', headline_type: 'listicle', format: :js }.to raise_exception
+        expect { get 'generate', headline_type: 'listicle', format: :js }.to raise_exception NoMethodError
       end
       it 'dontwanna should fail because only proper nouns' do
-        expect { post 'generate', headline_type: 'dontwanna', format: :js  }.to raise_exception
+        expect { post 'generate', headline_type: 'dontwanna', format: :js  }.to raise_exception NoMethodError
       end
       it 'works' do
         Noun.create(value: "Hat")
         expect { post 'generate', headline_type: 'dontwanna', format: :js  }.not_to raise_exception
-      end
-    end
-    context 'whathappens' do
-      before do
-        Noun.create(value: 'Lady', is_agent: true)
-        First.create(value: 'First')
-        Next.create(value: 'Next')
-        Adjective.create(value: 'Blue')
-        Predicate.create(value: 'Did Something')
-        Verb.create(value: 'Smoke')
-      end
-      subject { post 'generate', headline_type: 'whathappens', format: :js }
-      it 'works' do
-        subject
-        expect(assigns(:headline)).to match /Lady/
-        expect(assigns(:headline)).to match /What Happened Next/
       end
     end
   end
