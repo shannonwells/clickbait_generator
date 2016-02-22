@@ -1,8 +1,5 @@
 function CBGgetNewHeadline(event) {
   var headlineType = $(this).attr('id');
-  if ($(event.target).hasClass('active')) {
-    return;
-  }
   $.get('/home/generate',
         'headline_type=' + headlineType,
         onGetSuccess
