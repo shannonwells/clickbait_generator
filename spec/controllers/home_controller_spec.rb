@@ -28,11 +28,21 @@ describe HomeController, type: :controller do
       end
 
       %w(whathappens listicle watchas dontwanna).each do |type|
-        let(:post_params) { {headline_type: type, format: :js} }
+        let(:format) { :js }
+        let(:post_params) { {headline_type: type, format: format} }
+
         subject { post 'generate', post_params }
 
-        it { should have_http_status :success }
-        it { should render_template :generate }
+        context "as js" do
+          it { should have_http_status :success }
+          it { should render_template :generate }
+        end
+
+        context "as json" do
+          let(:format) { :json }
+          it { should have_http_status :success }
+          it { should be_a_json_response }
+        end
 
       end
     end

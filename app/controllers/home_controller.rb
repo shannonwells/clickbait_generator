@@ -6,6 +6,12 @@ class HomeController < ApplicationController
   end
 
   def generate
+    respond_to do |format|
+      format.js {}
+      format.json {
+        render json: @clickbait
+      }
+    end
   end
 
   private
