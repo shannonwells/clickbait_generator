@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-['Manatee', "Hippie",  "Vegan", "Terrorist", "Angry Virgin", "Communist", "Republican", "Democrat", "Tosher", "Perisher", "Frood", "Old Biddie", "Reptile", "Guy", "Little Boy", "Cranky Old Cat", "Micropig", "Baby Hedgehog", "Little Girl", "Old Man", "Old Woman", "Fireman", "Policeman", "Bunny", "Monkey", "Scientist", "Dog", 'American', 'White Person', 'Baby', 'Puppy', 'Kitten', 'Person', 'Friend',  'Lover',  'Superhero', 'Celebrity', 'Clown', 'Criminal',  'Dude', 'Bully', 'Street Musician', 'Kitten', 'Dog', 'Scientist', 'Puppy', 'Monkey', 'Bunny', 'Policeman', 'Fireman', 'Old Woman', 'Old Man', 'Little Girl', 'Baby', 'Baby Hedgehog', 'Micropig', 'Old Cat', 'Little Boy', 'Guy','Reptile', 'Nerd','Geek','Cosplayer','Otaku'].each do |n|
+['Furries', 'Manatee', "Hippie",  "Vegan", "Terrorist", "Angry Virgin", "Communist", "Republican", "Democrat", "Tosher", "Perisher", "Frood", "Old Biddie", "Reptile", "Guy", "Little Boy", "Cranky Old Cat", "Micropig", "Baby Hedgehog", "Little Girl", "Old Man", "Old Woman", "Fireman", "Policeman", "Bunny", "Monkey", "Scientist", "Dog", 'American', 'White Person', 'Baby', 'Puppy', 'Kitten', 'Person', 'Friend',  'Lover',  'Superhero', 'Celebrity', 'Clown', 'Criminal',  'Dude', 'Bully', 'Street Musician', 'Kitten', 'Dog', 'Scientist', 'Puppy', 'Monkey', 'Bunny', 'Policeman', 'Fireman', 'Old Woman', 'Old Man', 'Little Girl', 'Baby', 'Baby Hedgehog', 'Micropig', 'Old Cat', 'Little Boy', 'Guy','Reptile', 'Nerd','Geek','Cosplayer','Otaku'].each do |n|
     newnoun = Noun.find_or_initialize_by(value: n)
     newnoun.is_agent = true
     newnoun.save!
@@ -53,7 +53,7 @@ SEASONAL_ADJ = {
     :winter => ["Icy", "Snowy", "Yuletide", "Christmasy", "Fried", "Festive", 'Sparkling', 'Jingling']
 }
 
-  ["Called This News Anchor Fat", 'Flew Over A Pig Farm', "Was Tipped By A Girl", "Started Off Well", 'Did a Study', 'Made a Horrible Decision', 'Gave A Homeless Person Some Money', 'Washed His Car', 'Saw A Kitten Drowning', 'Took This Photograph', 'Tried To Climb Mount Everest', 'Woke Up To Find The House on Fire', 'Sowed Some Magic Beans', 'Was Getting Bombarded With Complaints', 'Stumbled Upon An Abandoned House In the Woods', 'Found A Couple of Old Oak Slabs', 'Finally Solved That Weird Puzzle Box In the Attic', 'Picked Up Some Hitchhikers', 'Discovered His Eyebrows', 'Sees For the First Time What A Jerk They Are', 'Saw A Bee', 'Discovered There Were Snakes On His Motherfuckin\' Plane', 'Found a Mysterious Board Game And Decided to Play It','Cut a Cabbage in Half','Told Us You Farted', 'Saw These Boxes On A Lawn', "Wanted To Be A Princess",'Took On Racism With Cupcakes','Had Given Up On Human Connection'].each do |n|
+  ["Signed A Petition", "Called This News Anchor Fat", 'Flew Over A Pig Farm', "Was Tipped By A Girl", "Started Off Well", 'Did a Study', 'Made a Horrible Decision', 'Gave A Homeless Person Some Money', 'Washed His Car', 'Saw A Kitten Drowning', 'Took This Photograph', 'Tried To Climb Mount Everest', 'Woke Up To Find The House on Fire', 'Sowed Some Magic Beans', 'Was Getting Bombarded With Complaints', 'Stumbled Upon An Abandoned House In the Woods', 'Found A Couple of Old Oak Slabs', 'Finally Solved That Weird Puzzle Box In the Attic', 'Picked Up Some Hitchhikers', 'Discovered His Eyebrows', 'Sees For the First Time What A Jerk They Are', 'Saw A Bee', 'Discovered There Were Snakes On His Motherfuckin\' Plane', 'Found a Mysterious Board Game And Decided to Play It','Cut a Cabbage in Half','Told Us You Farted', 'Saw These Boxes On A Lawn', "Wanted To Be A Princess",'Took On Racism With Cupcakes','Had Given Up On Human Connection'].each do |n|
     First.find_or_create_by(value: n)
   end
 
@@ -69,6 +69,3 @@ SEASONAL_ADJ = {
     newverb.needs_agent = true
     newverb.save!
   end
-
-
-
