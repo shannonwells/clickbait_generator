@@ -16,6 +16,34 @@ describe HomeController, type: :controller do
     it { should have_http_status :success }
   end
 
+  context 'GET /slackbot/generate' do
+    before do
+      Adjective.create(value: 'Blue')
+      Noun.create(value: 'Lady', is_agent: true)
+      Predicate.create(value: 'Did Something')
+      First.create(value: 'First')
+      Next.create(value: 'Next')
+      Verb.create(value: 'Smoke')
+    end
+
+    it "works with no argument" do
+      get :slackbot_generate
+      expect(response).to be_success
+      expect(response.body).not_to be_empty
+    end
+
+    it "works with a type" do
+      get :slackbot_generate, text: 'whathappens'
+      expect(response).to be_success
+      expect(response.body).not_to be_empty
+    end
+
+    it "responds with plain text" do
+      get :slackbot_generate
+      expect(response.header["Content-Type"]).to match(/^text\/plain/)
+    end
+  end
+
   context 'POST generate' do
     context 'basic request' do
       before do

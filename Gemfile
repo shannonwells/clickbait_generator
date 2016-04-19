@@ -21,7 +21,7 @@ gem 'spring', group: :development
 gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-gem 'unicorn'
+gem 'unicorn'''
 gem 'verbs'
 
 # Compiles assets for heroku
