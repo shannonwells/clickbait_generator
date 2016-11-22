@@ -30,6 +30,8 @@ gem 'awesome_print'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 group :development, :test do
+  gem 'capybara'
+  gem 'jasmine'
   gem 'rspec-rails'
   gem 'byebug'
   gem 'faker'

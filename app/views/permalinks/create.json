@@ -1,0 +1,4 @@
+{
+  "headline": "<%= @permalink.headline %>",
+  "url": "<%= permalinks_url(@permalink.id) %>"
+}
