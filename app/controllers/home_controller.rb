@@ -24,7 +24,7 @@ class HomeController < ApplicationController
 
   def generate_clickbait
     @clickbait = ClickbaitBuilder.generate(params[:headline_type])
-    @current_val = @clickbait.type
+    @current_val = @clickbait.headline_type
     @headline = @clickbait.headline
   end
 

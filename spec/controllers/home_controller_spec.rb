@@ -83,12 +83,6 @@ describe HomeController, type: :controller do
         Next.create(value: 'Next')
         Verb.create(value: 'Verb')
       end
-      it 'listicle should fail because only proper nouns' do
-        expect { get 'generate', headline_type: 'listicle', format: :js }.to raise_exception NoMethodError
-      end
-      it 'dontwanna should fail because only proper nouns' do
-        expect { post 'generate', headline_type: 'dontwanna', format: :js  }.to raise_exception NoMethodError
-      end
       it 'works' do
         Noun.create(value: "Hat")
         expect { post 'generate', headline_type: 'dontwanna', format: :js  }.not_to raise_exception

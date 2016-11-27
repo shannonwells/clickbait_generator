@@ -3,7 +3,7 @@ class ClickbaitBuilder
   DEFAULT_LIST_TYPE = 'listicle'
 
   def self.generate(list_type = nil)
-    list_type = Clickbait::TYPES.include?(list_type) ? list_type : 'listicle'
+    list_type = Clickbait::HEADLINE_TYPES.include?(list_type) ? list_type : 'listicle'
     params = new_headline(list_type)
     Clickbait.new(type: list_type, headline: params[:headline], keyword1: params[:keyword1], keyword2: params[:keyword2])
   end

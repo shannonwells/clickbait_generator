@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20161014184753) do
     t.string "value"
   end
 
+  create_table "clickbaits", force: :cascade do |t|
+    t.string   "headline"
+    t.string   "headline_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "firsts", force: :cascade do |t|
     t.string "value"
   end
@@ -37,12 +44,6 @@ ActiveRecord::Schema.define(version: 20161014184753) do
   create_table "particles", force: :cascade do |t|
     t.string  "value"
     t.boolean "is_singular", default: true
-  end
-
-  create_table "permalinks", force: :cascade do |t|
-    t.string   "headline"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "predicates", force: :cascade do |t|
