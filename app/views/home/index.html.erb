@@ -6,7 +6,7 @@
   <h1 class='' id='headline'><%= @headline.html_safe %></h1>
 </div>
 <div class='' id='clickbait-buttons'>
-  <% %w(listicle whathappens dontwanna whyi).each do |htype| %>
+  <% %w(listicle whathappens dontwanna whyi watchas).each do |htype| %>
         <% activeclass = (htype==@current_val) ? 'active' : ''%>
         <span id="<%= htype %>" class="sparkley btn-clickbait <%= activeclass %> ">
           <%= list_type_title htype %>
@@ -15,5 +15,5 @@
 </div>
 
 <div class='' id="init-twit">
-  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://clickbaitgenerator.herokuapp.com" data-text="<%= @headline.html_safe %>" data-via="ShannonEWells" data-size="large" data-count="none">:P</a>
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://clickbaitgenerator.herokuapp.com" data-text="<%= @headline.html_safe %>" data-via="ShannonEWells" data-size="large" data-count="none">Tweet</a>
 </div>
