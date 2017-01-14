@@ -6,7 +6,7 @@ You can run clickbait.rb from the top level directory (this is the original scri
 
 ### Rails App
 
-To see it in action, see http://buzzkillfeed.me   
+To see it in action, see http://www.buzzkillfeed.me   
 
 This has multiple types of clickbait headlines to choose from, and it also will properly inflect verbs and nouns, unlike the CLI.
 If you run it as a Rails app, be sure to run
