@@ -35,8 +35,11 @@ gem 'awesome_print'
 group :development, :test do
   gem 'rspec-rails'
   gem 'byebug'
+  gem 'faker'
 end
 
 group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
   gem 'nyan-cat-formatter'
 end
