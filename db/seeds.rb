@@ -67,8 +67,8 @@ SEASONAL_PROPER_NOUNS={
 end
 
   ["You Can't Even", "You Can't Literally Even",
-   "Are Innocent-Looking Enough, But Actually Quite Dangerous',
-   'Are A Hot Mess",'Mean Something Changed In the Matrix',
+   "Are Innocent-Looking Enough, But Actually Quite Dangerous",
+   "Are A Hot Mess",'Mean Something Changed In the Matrix',
    'Taste Just Like Iguana', 'Are Sponge-Worthy',
    'Post Way Too Many Selfies','Could Double As A Demonic Lamp',
    'Will Ruin Your Life', 'You Should Avoid At All Costs',

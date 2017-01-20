@@ -40,7 +40,7 @@ class ClickbaitBuilder
       noun = random_model('Noun', {is_agent: true})
 
       if rand(50)%10 == 0 and !Rails.env.test?  # breaking tests
-        last_half = "THANKS, OBAMA."
+        last_half = "THANKS, THE DONALD."
       else
         last_half = "What Happened Next #{next_clause.value}."
       end
