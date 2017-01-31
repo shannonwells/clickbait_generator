@@ -1,79 +1,33 @@
-/**
- * Created by shannon on 1/27/17.
- */
-$(document).ready( function() {
+$.fn.sparkleh = function( options ) {
 
+    return this.each( function(k,v) {
 
-    // default is varying levels of transparent white sparkles
-    //     $(".sparkley:first").sparkleh();
+        var $this = $(v).css("position","relative");
 
-    // rainbow as a color generates random rainbow colros
-    // count determines number of sparkles
-    // overlap allows sparkles to migrate... watch out for other dom elements though.
-    $(".sparkley").sparkleh({
-        color: "rainbow",
-        count: 100,
-        overlap: 10
+        var settings = $.extend({
+            width: $this.outerWidth(),
+            height: $this.outerHeight(),
+            color: "#FFFFFF",
+            count: 30,
+            overlap: 0,
+            speed: 1
+        }, options );
+
+        var sparkle = new Sparkle( $this, settings );
+
+        $this.on({
+            "mouseover focus" : function(e) {
+                sparkle.over();
+            },
+            "mouseout blur" : function(e) {
+                sparkle.out();
+            }
+        });
+
     });
 
-    // // here we create fuschia sparkles
-    // $("btn-clickbait").sparkleh({
-    //     count: 80,
-    //     color: ["#ff0080","#ff0080","#0000FF"]
-    // });
+}
 
-
-    // $("btn-clickbait").sparkleh({
-    //     count: 20,
-    //     color: "#00ff00",
-    //     speed: 0.05
-    // });
-
-
-    // an array can be passed, too for colours
-    // for an image, the image needs to be fully loaded to set
-    // the canvas to it's height/width.
-    // speed allows us to control... the ... velocity
-    // $("#image").imagesLoaded(function () {
-    //     $(".img").sparkleh({
-    //         count: 25,
-    //         color: ["#f3edc4", "#253943", "#659e3f"],
-    //         speed: 0.4
-    //     });
-    // });
-});
-
-jQuery.fn.extend( {
-
-    sparkleh: function( options ) {
-
-        return this.each(function (k, v) {
-
-            var $this = $(v).css("position", "relative");
-
-            var settings = $.extend({
-                width: $this.outerWidth(),
-                height: $this.outerHeight(),
-                color: "#FFFFFF",
-                count: 30,
-                overlap: 0,
-                speed: 1
-            }, options);
-
-            var sparkle = new Sparkle($this, settings);
-
-            $this.on({
-                "mouseover focus": function (e) {
-                    sparkle.over();
-                },
-                "mouseout blur": function (e) {
-                    sparkle.out();
-                }
-            });
-
-        });
-    }
-});
 
 
 
@@ -320,5 +274,3 @@ $.fn.imagesLoaded = function(callback){
 
     return this;
 };
-
-
