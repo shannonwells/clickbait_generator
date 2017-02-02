@@ -21,21 +21,22 @@ window.onload = function () {
     $(".sparkley").sparkleh({
         color: "rainbow",
         count: 100,
-        overlap: 10
+        overlap: 20
     });
 
-    // here we create fuscia sparkles
-    $("h1").sparkleh({
-        count: 80,
-        color: ["#ff0080", "#ff0080", "#0000FF"]
-    });
+    // here we create fuscia sparkles within the element
+    // $(".sparkley").sparkleh({
+    //     count: 80,
+    //     color: ["#ff0080", "#ff0080", "#0000FF"]
+    // });
 
 
-    $("p").sparkleh({
-        count: 20,
-        color: "#00ff00",
-        speed: 0.05
-    });
+    // Scintillate-in-place
+    // $(".sparkley").sparkleh({
+    //     count: 30,
+    //     color: "rainbow",
+    //     speed: 0.1
+    // });
 
 
     // an array can be passed, too for colours

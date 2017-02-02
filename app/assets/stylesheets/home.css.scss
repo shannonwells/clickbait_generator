@@ -2,144 +2,107 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'variables';
-
-@mixin button--gradient {
-  -moz-box-shadow: 0px 1px 0px 0px $button-shad;
-  -webkit-box-shadow: 0px 1px 0px 0px $button-shad;
-  box-shadow: 0px 1px 0px 0px $button-shad;
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, $button-grad), color-stop(1, $buttonbg));
-  background:-moz-linear-gradient(top, $button-grad 5%, $buttonbg 100%);
-  background:-webkit-linear-gradient(top, $button-grad 5%, $buttonbg 100%);
-  background:-o-linear-gradient(top, $button-grad 5%, $buttonbg 100%);
-  background:-ms-linear-gradient(top, $button-grad 5%, $buttonbg 100%);
-  background:linear-gradient(to bottom, $button-grad 5%, $buttonbg 100%);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$button-grad', endColorstr='$buttonbg',GradientType=0);
-  background-color:$button-grad;
-  -moz-border-radius:6px;
-  -webkit-border-radius:6px;
-  border-radius:6px;
-  border:1px solid $buttonbg;
-  &:hover {
-    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, $buttonbg), color-stop(1, $button-grad));
-    background:linear-gradient(to bottom, $buttonbg 5%, $button-grad 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$buttonbg', endColorstr='$button-grad',GradientType=0);
-    background-color:$buttonbg;
-  }
-
-}
-
-@import url(https://fonts.googleapis.com/css?family=Lato:400,900|Montez);
+@import 'mixins';
 
 $buttonBackground: #2c3e50;
-$buttonColor: rgba(255,255,255,1);
-
-.sparkley {
-
-  background: lighten( $buttonBackground , 10% );
-  color: $buttonColor;
-  border: none;
-
-  padding: 16px 36px;
-  font-weight: normal;
-
-  border-radius: 3px;
-  transition: all 0.25s ease;
-
-  box-shadow: 0 38px 32px -23px black;
-  margin: 0 1em 1em;
-
-  &:hover {
-
-    background: $buttonBackground;
-    color: transparentize( $buttonColor,0.8 );
-
-  }
-
-}
-
-
-h1,h2,h3 {
-
-  span {
-    font-family: Montez;
-    font-size: 1.9em;
-    font-weight: 300;
-    margin: 0 0.3em;
-    color: #ff0080;
-  }
-
-}
-
+$buttonColor: rgba(255, 255, 255, 1);
 
 body {
+  margin: 0;
   background: $bgcolor;
-  a {  color: $linkcolor;  }
-  h1 { font-weight: bold;}
-  .indent-sm { margin-left: 10px; }
-  #topbar {
-    background-color: $bgcolor;
-    color: $linkcolor;
-  }
-  #main {
-    background-color: $contrastcolor;
-  }
-  .footer {
-    background-color: $bgcolor;
-    margin: 0;
-    padding: 20px 0;
-    text-align: center;
-    .left {
-      float: left;
-    }
-    .nav-bottom {
-      padding: 0 10px;
-    }
-  }
+  font-family: "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+}
 
-  #clickbait-buttons {
-    //background: #000;
-    padding: 2em;
-    font-weight: bold;
-    font-size: 1.5em;
-    flex-wrap: wrap;
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
-  }
+a {
+  color: $linkcolor;
+}
 
-  .btn-clickbait {
-    @include button--gradient;
-    margin: 1em 15px;
-    &:last-child {
-      margin-left: 0;
-    }
-    flex-basis: 0;
-    flex-grow: 1;
-    margin-top: 5px;
-    line-height: 2.5em;
-    cursor:pointer;
-    color:#ffffff;
-    text-decoration:none;
-    text-shadow:0px -1px 0px #c70067;
+h1 {
+  font-weight: bold;
+}
+
+.indent-sm {
+  margin-left: 10px;
+}
+
+#topbar {
+  background-color: $bgcolor;
+  color: $linkcolor;
+}
+
+#main {
+  padding: 0;
+  background-color: $contrastcolor;
+}
+
+#footer {
+  background-color: $bgcolor;
+  margin: 0;
+  padding: 20px 0;
+  text-align: center;
+  .left {
+    float: left;
   }
-  .btn-clickbait:active {
-    position:relative;
-    top:1px;
-  }
-  #init-twit {
-    height: 50px;
-  }
-  #headline {
-    text-align: center;
-    margin: 20px auto;
-  }
-  .headline-image {
-    display: block;
-    width: 320px;
-    height: 240px;
-    margin-top: 2em;
-    margin-left: auto;
-    margin-right: auto;
+  .nav-bottom {
+    padding: 0 10px;
   }
 }
+
+#clickbait-buttons {
+  //background: #000;
+  padding: 1em 2em;
+  font-weight: bold;
+  font-size: 1.5em;
+  flex-wrap: wrap;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-clickbait {
+  @include button--gradient;
+  margin: 1em 15px;
+  &:last-child {
+    margin-left: 0;
+  }
+  flex-basis: 0;
+  flex-grow: 1;
+  margin-top: 5px;
+  line-height: 2.5em;
+  cursor: pointer;
+  color: #ffffff;
+  text-decoration: none;
+  text-shadow: 0px -1px 0px #c70067;
+}
+
+.btn-clickbait:active {
+  position: relative;
+  top: 1px;
+}
+
+#init-twit {
+  padding: 0 2em;
+  height: 50px;
+}
+
+#headline {
+  font-size: 40px;
+  text-align: center;
+  padding: 0 14px;
+  margin: 14px auto;
+}
+
+.headline-image {
+  display: block;
+  width: 320px;
+  height: 240px;
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sparkley {
+  transition: all 0.25s ease;
+}
+
 

@@ -1,11 +1,11 @@
-<div class="row" id="topbar">
+<div class="" id="topbar">
 <h5 class="indent-sm">This is Clickbait Generator.</h5>
 </div>
-<div class="row clickbait-frame">
+<div class="clickbait-frame">
   <!--<img class="headline-image" src="<%= "http://loremflickr.com/320/240/#{@clickbait.keyword1},#{@clickbait.keyword2}" %>">-->
-  <h1 class='col-xs-12' id='headline'><%= @headline.html_safe %></h1>
+  <h1 class='' id='headline'><%= @headline.html_safe %></h1>
 </div>
-<div class='row' id='clickbait-buttons'>
+<div class='' id='clickbait-buttons'>
   <% %w(listicle whathappens dontwanna whyi).each do |htype| %>
         <% activeclass = (htype==@current_val) ? 'active' : ''%>
         <span id="<%= htype %>" class="sparkley btn-clickbait <%= activeclass %> ">
