@@ -4,7 +4,8 @@ class ClickbaitBuilder
 
   def self.generate(list_type = nil)
     list_type = Clickbait::TYPES.include?(list_type) ? list_type : 'listicle'
-    Clickbait.new(type: list_type, headline: new_headline(list_type))
+    params = new_headline(list_type)
+    Clickbait.new(type: list_type, headline: params[:headline], keyword1: params[:keyword1], keyword2: params[:keyword2])
   end
 
   class << self
@@ -21,7 +22,9 @@ class ClickbaitBuilder
       noun = random_model('Noun', {is_proper: false})
       adj = random_model('Adjective')
       pred = random_model('Predicate')
-      "The #{items} #{adj.value} #{noun.value.pluralize} That #{pred.value}"
+      { headline: "The #{items} #{adj.value} #{noun.value.pluralize} That #{pred.value}",
+        keyword1: noun.value,
+        keyword2: adj.value }
     end
 
     def whyi
@@ -31,7 +34,10 @@ class ClickbaitBuilder
       verb_string = verb.value.downcase
       sub_obj = verb_string.verb.conjugate(subject: "I", tense: :past, person: :first, aspect: :perfective).titleize
       method = ['Why','How','The Day','I Wish'][rand(52)%4]
-      "#{method} #{sub_obj} #{particle_for(adj.value,noun)} #{adj.value} #{noun.value}"
+
+      { headline: "#{method} #{sub_obj} #{particle_for(adj.value,noun)} #{adj.value} #{noun.value}",
+        keyword1: noun.value,
+        keyword2: verb.value }
     end
 
     def whathappens
@@ -45,14 +51,18 @@ class ClickbaitBuilder
         last_half = "What Happened Next #{next_clause.value}."
       end
 
-      "#{particle_for(noun.value,noun)} #{noun.value} #{first.value}. #{last_half}"
+      { headline: "#{particle_for(noun.value,noun)} #{noun.value} #{first.value}. #{last_half}",
+        keyword1: noun.value,
+        keyword2: noun.value }
     end
 
     def dontwanna
       noun = random_model('Noun', {is_proper: false})
       adj = random_model('Adjective')
       verb = random_model('Verb')
-      "You Don't Want To #{verb.value} This #{adj.value} #{noun.value}"
+      { headline: "You Don't Want To #{verb.value} This #{adj.value} #{noun.value}",
+        keyword1: noun.value,
+        keyword2: verb.value }
     end
 
     def watchas
@@ -64,7 +74,9 @@ class ClickbaitBuilder
       verb_string = verb.value.downcase
       sub_obj = verb_string.verb.conjugate(subject: noun.value).titleize
       particle = noun.is_proper? ? '' : 'This'
-      "Watch As #{particle} #{sub_obj} #{particle_for(adj.value,noun2)} #{adj.value} #{noun2.value}"
+      { headline: "Watch As #{particle} #{sub_obj} #{particle_for(adj.value,noun2)} #{adj.value} #{noun2.value}",
+        keyword1: noun.value,
+        keyword2: noun2.value }
     end
 
     def random_model(klass_name, opts={})
