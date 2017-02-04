@@ -21,11 +21,8 @@ gem 'rails_12factor', group: :production
 gem 'awesome_print'
 
 group :development, :test do
-  gem 'capybara'
   gem 'jasmine'
   gem 'rspec-rails'
-  gem 'capybara'
-  gem 'capybara-webkit'
   gem 'jasmine'
   gem 'jasmine-jquery-rails'
   gem 'teaspoon-jasmine'
@@ -36,6 +33,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'database_cleaner'
   gem 'nyan-cat-formatter'
 end
