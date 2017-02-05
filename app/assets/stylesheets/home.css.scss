@@ -60,7 +60,7 @@ h1 {
 }
 
 .btn-clickbait {
-  @include button--gradient;
+  /* @include button--gradient;   - Let candy buttons do this */
   margin: 1em 15px;
   &:last-child {
     margin-left: 0;
@@ -104,5 +104,3 @@ h1 {
 .sparkley {
   transition: all 0.25s ease;
 }
-
-

@@ -4,8 +4,14 @@
 <div id='clickbait-buttons'>
   <% %w(listicle whathappens dontwanna whyi watchas).each do |htype| %>
       <% activeclass = (htype==@current_val) ? 'active' : ''%>
-      <% title = list_type_title(htype) %>
+      <% title = list_type_title(htype) 
+         color = cycle(*(%w(orange pink blue green)))
+         shape = %w(round oval brackets skew back knife shield drop morph).sample
+         icon = ["♔", "♕", "♖", "♗"].sample %>
+		
       <span id="<%= htype %>" title="<%= title %>" class="sparkley btn-clickbait <%= activeclass %> ">
+      <span id="<%= htype %>" data-icon="<%= icon %>" class="sparkley btn-clickbait <%= [activeclass, color, shape].join(" ") %> ">
+          <%= list_type_title htype %>
           <%= title %>
         </span>
   <% end %>
