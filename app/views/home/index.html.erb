@@ -1,6 +1,5 @@
 <div class="clickbait-frame">
-  <!--<img class="headline-image" src="<%= "http://loremflickr.com/320/240/#{@clickbait.keyword1},#{@clickbait.keyword2}" %>">-->
-  <h1 class='' id='headline'><%= @headline.html_safe %></h1>
+  <h1 class='' id='headline'></h1>
 </div>
 <div class='' id='clickbait-buttons'>
   <% %w(listicle whathappens dontwanna whyi watchas).each do |htype| %>
@@ -12,5 +11,5 @@
 </div>
 
 <div class='' id="init-twit">
-  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://clickbaitgenerator.herokuapp.com" data-text="<%= @headline.html_safe %>" data-via="ShannonEWells" data-size="large" data-count="none">Tweet</a>
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://clickbaitgenerator.herokuapp.com" data-text="" data-via="ShannonEWells" data-size="large" data-count="none">Tweet</a>
 </div>

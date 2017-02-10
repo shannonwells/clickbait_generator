@@ -1,5 +1,8 @@
 function CBGgetNewHeadline(event) {
-    var headlineType = $(this).attr('id');
+    getHeadline($(this).attr('id'));
+}
+
+function getHeadline(headlineType) {
     $.get('/home/generate',
         'headline_type=' + headlineType,
         onGetSuccess
@@ -11,7 +14,9 @@ function onGetSuccess(xhr) {
 }
 
 window.onload = function () {
+    getHeadline('listicle');
     $('#clickbait-buttons .btn-clickbait').click(CBGgetNewHeadline);
+
     // default is varying levels of transparent white sparkles
     // $(".sparkley:first").sparkleh();
 

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :home do
     get 'index'
     get 'about'
-    post 'generate'
+    get 'generate'
   end
 
   resource :clickbaits, only: [:create, :show]

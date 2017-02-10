@@ -1,11 +1,11 @@
 class HomeController < ApplicationController
 
-  before_action :generate_clickbait, only: [:index, :generate]
 
   def index
   end
 
   def generate
+    generate_clickbait
     respond_to do |format|
       format.js {}
       format.json {
