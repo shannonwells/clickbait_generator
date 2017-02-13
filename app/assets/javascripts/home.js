@@ -10,7 +10,8 @@ function getHeadline(headlineType) {
 }
 
 function onGetSuccess(xhr) {
-    console.log(xhr);
+    // maybe this will do something else later, like register analytics
+    return true;
 }
 
 function addCsrf(xhr) {
@@ -19,7 +20,7 @@ function addCsrf(xhr) {
 
 function onShareSuccess(html) {
     var $modalDiv = $(".ladom");
-    $("<div class=''>FOO</div>").appendTo($modalDiv);
+    $(html).appendTo($modalDiv);
     $modalDiv.modal();
 };
 
@@ -30,7 +31,9 @@ window.onload = function () {
             'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    getHeadline('listicle');
+    if ($(".home#headline").length) {
+        getHeadline('listicle');
+    }
     $('#clickbait-buttons .btn-clickbait').click(CBGgetNewHeadline);
     $('#manual-ajax').click(function(event){
         var $modalDiv = $(".ladom");

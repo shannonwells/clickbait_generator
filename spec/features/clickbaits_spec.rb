@@ -10,6 +10,32 @@ describe 'Clickbait Generator', :feature, :js do
   end
 
   shared_examples_for "a Clickbait Generator page" do
+
+    it "lets me share the headline to Twitter" do
+      headline = page.find("#headline").text
+      within_frame(page.find('.twitter-share-button')) do
+        click_on 'Tweet'
+      end
+    end
+
+    it "lets me share the headline's permalink" do
+      begin
+        headline = page.find("#headline").text
+        click_on 'Share Permalink'
+        locator = page.find(".modal")
+        expect(locator).to have_text(headline)
+      end
+    end
+
+  end
+
+  context "when I visit the home page" do
+    before do
+      visit '/'
+    end
+
+    it_behaves_like "a Clickbait Generator page"
+
     it 'has all the layout elements' do
       expect(page).to have_text("This is Clickbait Generator.")
       expect(page).to have_text("Get the Source")
@@ -18,28 +44,6 @@ describe 'Clickbait Generator', :feature, :js do
       expect(page).to have_text 'About This Thing'
       click_on 'Home'
     end
-    it "lets me share the headline to Twitter" do
-      headline = find("#headline").text
-      within_frame(find('.twitter-share-button')) do
-        click_on 'Tweet'
-      end
-    end
-    it "lets me share the headline's permalink" do
-      link_share_window = window_opened_by do
-        click_on 'Share Permalink'
-      end
-      within_window(link_share_window) do
-        expect(page).to have_text(headline)
-      end
-      # expect()
-    end
-  end
-
-  context 'when I first go to the page' do
-    before do
-      visit '/'
-    end
-    it_behaves_like "a Clickbait Generator page"
 
     it "has all the button types" do
       Clickbait::HEADLINE_TYPES.each do |headline_type|
@@ -47,18 +51,32 @@ describe 'Clickbait Generator', :feature, :js do
       end
     end
 
+    context 'when I click on a button' do
+      Clickbait::HEADLINE_TYPES.each do |headline_type|
+        before do
+          visit '/'
+          find("##{headline_type}").click
+        end
+
+        it_behaves_like "a Clickbait Generator page"
+
+      end
+    end
+
   end
 
-  context 'when I click on a button' do
-    Clickbait::HEADLINE_TYPES.each do |headline_type|
-      before do
-        visit '/'
-        find("##{headline_type}").click
-      end
 
-      it_behaves_like "a Clickbait Generator page"
-
+  context  "when I visit a permalink" do
+    let(:clickbait) {
+      clickbait = Clickbait.create headline: "something hilarious", headline_type: 'listicle'
+    }
+    before do
+      visit "/best_of/#{clickbait.id}"
     end
+    it "shows the existing headline" do
+      expect(page.find("#headline").text()).to eql clickbait.headline
+    end
+    it_behaves_like "a Clickbait Generator page"
   end
 
 end

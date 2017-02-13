@@ -2,16 +2,12 @@ class ClickbaitsController < ApplicationController
 
   def show
     @clickbait = Clickbait.find params[:id]
-    render 'home/index'
   end
 
   def create
     @clickbait = Clickbait.create title_params
-    if @clickbait.valid?
-      render json: { result: 'success', url: clickbaits_url(@clickbait)}, status: :ok
-    else
-      render json: { result: 'error', url: ''}, status: :internal_server_error
-    end
+    flash[:alert] = "There was a problem saving this Clickbait, sorryyyy!" if !@clickbait.valid?
+    render layout: false
   end
 
   private
