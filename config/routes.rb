@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   resource :clickbaits, only: [:create, :show]
+
   get '/best_of/:id', to: 'clickbaits#show'
 
   get '/slackbot/generate', to: 'home#slackbot_generate'

@@ -13,12 +13,38 @@ function onGetSuccess(xhr) {
     console.log(xhr);
 }
 
+function addCsrf(xhr) {
+    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+}
+
+function onShareSuccess(html) {
+    var $modalDiv = $(".ladom");
+    $("<div class=''>FOO</div>").appendTo($modalDiv);
+    $modalDiv.modal();
+};
+
+
 window.onload = function () {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
     getHeadline('listicle');
     $('#clickbait-buttons .btn-clickbait').click(CBGgetNewHeadline);
-
-    // default is varying levels of transparent white sparkles
-    // $(".sparkley:first").sparkleh();
+    $('#manual-ajax').click(function(event){
+        var $modalDiv = $(".ladom");
+        event.preventDefault();
+        if ($modalDiv.text() == "") {
+            var headLine = $("#headline").text();
+            var headlineType = "listicle";
+            $.post("/clickbaits",
+                { clickbait: { headline: headLine, headline_type: headlineType }},
+                onShareSuccess);
+        } else {
+            $modalDiv.modal();
+        }
+    });
 
     // rainbow as a color generates random rainbow colros
     // count determines number of sparkles
@@ -27,32 +53,5 @@ window.onload = function () {
         color: "rainbow",
         count: 100,
         overlap: 20
-    });
-
-    // here we create fuscia sparkles within the element
-    // $(".sparkley").sparkleh({
-    //     count: 80,
-    //     color: ["#ff0080", "#ff0080", "#0000FF"]
-    // });
-
-
-    // Scintillate-in-place
-    // $(".sparkley").sparkleh({
-    //     count: 30,
-    //     color: "rainbow",
-    //     speed: 0.1
-    // });
-
-
-    // an array can be passed, too for colours
-    // for an image, the image needs to be fully loaded to set
-    // the canvas to it's height/width.
-    // speed allows us to control... the ... velocity
-    $("#image").imagesLoaded(function () {
-        $(".img").sparkleh({
-            count: 25,
-            color: ["#f3edc4", "#253943", "#659e3f"],
-            speed: 0.4
-        });
     });
 };
