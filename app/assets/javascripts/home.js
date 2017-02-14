@@ -14,10 +14,6 @@ function onGetSuccess(xhr) {
     return true;
 }
 
-function addCsrf(xhr) {
-    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-}
-
 function onShareSuccess(html) {
     var $modalDiv = $(".ladom");
     $(html).appendTo($modalDiv);
@@ -31,10 +27,13 @@ window.onload = function () {
             'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    if ($(".home#headline").length) {
+    if ($(".home #headline").length) {
         getHeadline('listicle');
     }
-    $('#clickbait-buttons .btn-clickbait').click(CBGgetNewHeadline);
+    $(".clickbaits #clickbait-buttons .btn-clickbait").click(function(event) {
+        window.location = '/';
+    });
+    $('.home #clickbait-buttons .btn-clickbait').click(CBGgetNewHeadline);
     $('#manual-ajax').click(function(event){
         var $modalDiv = $(".ladom");
         event.preventDefault();
