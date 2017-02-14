@@ -4,5 +4,5 @@ $("#clickbait-buttons .btn-clickbait").removeClass('active');
 $activeButton.addClass('active');
 
 $("#headline").html("<%= @headline.html_safe %>");
-$("#init-twit").html('<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://clickbaitgenerator.herokuapp.com" data-text="<%= escape_javascript(@headline.html_safe) %>" data-via="ShannonEWells" data-size="large" data-count="none" data-hashtags="clickbaitgenerator">:P</a>');
+$("#init-twit").html('<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://clickbaitgenerator.herokuapp.com" data-text="<%= escape_javascript(@headline.html_safe) %>" data-via="ShannonEWells" data-size="large" data-count="none" data-hashtags="clickbaitgenerator"></a>');
 twttr.widgets.load();

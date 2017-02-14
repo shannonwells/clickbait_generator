@@ -1,12 +1,12 @@
-class Clickbait
+class Clickbait  < ActiveRecord::Base
 
-  attr_accessor :headline, :type, :keyword1, :keyword2
+  HEADLINE_TYPES = %w(whathappens listicle watchas dontwanna whyi)
 
-  include ActiveModel::Model
-  include ActiveModel::Validations
+  validates :headline_type, inclusion: { in: HEADLINE_TYPES }, presence: true
+  validates :headline, presence: true
+  before_validation :drop_empty_tags
 
-  TYPES = %w(whathappens listicle watchas dontwanna whyi)
-
-  validates :type, inclusion: { in: TYPES }
-
+  def drop_empty_tags
+    self.tags.delete_if{ |tag| tag.blank? } if self.tags.present?
+  end
 end

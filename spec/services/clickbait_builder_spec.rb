@@ -22,7 +22,7 @@ describe ClickbaitBuilder do
     subject(:clickbait) { described_class.generate(type) }
 
     it "generates a listicle headline with by default" do
-      expect(clickbait.type).to eql 'listicle'
+      expect(clickbait.headline_type).to eql 'listicle'
     end
 
     it "includes a noun, adjective and a predicate" do
@@ -35,7 +35,7 @@ describe ClickbaitBuilder do
       let(:type) { 'whyi' }
 
       it "generates a whyi click bait" do
-        expect(clickbait.type).to eql 'whyi'
+        expect(clickbait.headline_type).to eql 'whyi'
       end
 
       it "includes a conjugated verb" do
@@ -54,7 +54,7 @@ describe ClickbaitBuilder do
       end
 
       it "generates a dontwanna click bait" do
-        expect(clickbait.type).to eql 'dontwanna'
+        expect(clickbait.headline_type).to eql 'dontwanna'
       end
 
       it "includes the word don't" do
@@ -78,11 +78,11 @@ describe ClickbaitBuilder do
       end
 
       it "generates a whathappens click bait" do
-        expect(clickbait.type).to eql 'whathappens'
+        expect(clickbait.headline_type).to eql 'whathappens'
       end
 
       it "includes a first and next and uses an agent noun" do
-        expect(clickbait.headline).to match /Next/
+        expect(clickbait.headline).to match /Next|OBAMA/
         expect(clickbait.headline).to match /First/
         expect(clickbait.headline).to match /whatever/
       end
@@ -96,7 +96,7 @@ describe ClickbaitBuilder do
       end
 
       it "generates a watches click bait" do
-        expect(clickbait.type).to eql 'watchas'
+        expect(clickbait.headline_type).to eql 'watchas'
       end
 
       it "includes an agent noun and a non agent noun and the verb and adjective" do

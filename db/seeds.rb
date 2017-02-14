@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-['Furries', 'Manatee', "Hippie",  "Vegan", "Terrorist", "Angry Virgin", "Communist", "Republican", "Democrat",
+['Furry', 'Manatee', "Hippie",  "Vegan", "Terrorist", "Angry Virgin", "Communist", "Republican", "Democrat",
  "Tosher", "Perisher", "Frood", "Old Biddie", "Reptile", "Guy", "Little Boy", "Cranky Old Cat", "Micropig",
  "Baby Hedgehog", "Little Girl", "Old Man", "Old Woman", "Fireman", "Policeman", "Monkey", "Scientist",
  "Dog", 'American', 'White Person', 'Baby', 'Puppy', 'Kitten', 'Person', 'Friend',  'Lover',  'Superhero',
