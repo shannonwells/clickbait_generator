@@ -1,24 +1,32 @@
-function CBGgetNewHeadline(event) {
-    getHeadline($(this).attr('id'));
-}
+CBG = {
+    getNewHeadline: function(event) {
+        CBG.getHeadline($(this).attr('id'));
+    },
 
-function getHeadline(headlineType) {
-    $.get('/home/generate',
-        'headline_type=' + headlineType,
-        onGetSuccess
-    );
-}
+    getBestOf: function(id) {
+        $.get('/home/generate', { id: id }, CBG.onGetSuccess );
+    },
 
-function onGetSuccess(xhr) {
-    // maybe this will do something else later, like register analytics
-    return true;
-}
+    getHeadline: function(headlineType) {
+        $.get('/home/generate', { headline_type: headlineType }, CBG.onGetSuccess);
+        CBG.resetLocationHash();
+    },
 
-function onShareSuccess(html) {
-    var $modalDiv = $(".ladom");
-    $(html).appendTo($modalDiv);
-    $modalDiv.modal();
-};
+    resetLocationHash: function() {
+        location.hash = "";
+    },
+
+    onGetSuccess: function(data, status, xhr, leaveHashAlone) {
+        // maybe this will do something else later, like register analytics
+        return true;
+    },
+
+    onShareSuccess: function(html) {
+        var $modalDiv = $(".ladom");
+        $(html).appendTo($modalDiv);
+        $modalDiv.modal();
+    }
+}
 
 
 window.onload = function () {
@@ -27,13 +35,10 @@ window.onload = function () {
             'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    if ($(".home #headline").length) {
-        getHeadline('listicle');
-    }
-    $(".clickbaits #clickbait-buttons .btn-clickbait").click(function(event) {
+    $("a.clickbaits #clickbait-buttons .btn-clickbait").click(function(event) {
         window.location = '/';
     });
-    $('.home #clickbait-buttons .btn-clickbait').click(CBGgetNewHeadline);
+    $('.home #clickbait-buttons .btn-clickbait').click(CBG.getNewHeadline);
     $('#manual-ajax').click(function(event){
         var $modalDiv = $(".ladom");
         event.preventDefault();
@@ -41,8 +46,8 @@ window.onload = function () {
             var headLine = $("#headline").text();
             var headlineType = "listicle";
             $.post("/clickbaits",
-                { clickbait: { headline: headLine, headline_type: headlineType }},
-                onShareSuccess);
+                   { clickbait: { headline: headLine, headline_type: headlineType }},
+                   CBG.onShareSuccess);
         } else {
             $modalDiv.modal();
         }
@@ -56,4 +61,11 @@ window.onload = function () {
         count: 100,
         overlap: 20
     });
+
+    // fetch best_of if the anchor tag is present
+    if (location.hash) {
+        CBG.getBestOf(location.hash.substr(1));
+    } else if ($('.home #headline').length) {
+        CBG.getHeadline('listicle');
+    }
 };

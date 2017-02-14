@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   end
 
   def generate
-    generate_clickbait
+    fetch_or_generate_clickbait(clickbait_params[:id])
     respond_to do |format|
       format.js {}
       format.json {
@@ -14,17 +14,29 @@ class HomeController < ApplicationController
   end
 
   def slackbot_generate
-    params[:headline_type] = params[:text]
-    generate_clickbait
+    fetch_or_generate_clickbait(nil)
     render plain: @clickbait.headline, status: 200
   end
 
   private
 
-  def generate_clickbait
-    @clickbait = ClickbaitBuilder.generate(params[:headline_type])
+  def clickbait_params
+    params[:headline_type] ||= params[:text]
+    params.permit(:id, :headline_type)
+  end
+
+  def fetch_or_generate_clickbait(best_of_id)
+    @clickbait = fetch_clickbait(best_of_id) || generate_clickbait
     @current_val = @clickbait.headline_type
     @headline = @clickbait.headline
+  end
+
+  def fetch_clickbait(best_of_id)
+    Clickbait.find_by(id: best_of_id) if best_of_id
+  end
+
+  def generate_clickbait
+    ClickbaitBuilder.generate(clickbait_params[:headline_type])
   end
 
 end

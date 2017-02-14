@@ -21,7 +21,6 @@ gem 'rails_12factor', group: :production
 gem 'awesome_print'
 
 group :development, :test do
-  gem 'jasmine'
   gem 'rspec-rails'
   gem 'jasmine'
   gem 'jasmine-jquery-rails'
