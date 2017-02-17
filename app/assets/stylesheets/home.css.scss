@@ -133,6 +133,8 @@ h1 {
 
 .ladom.modal {
   display: inline-block;
+  vertical-align: top;
+  margin-top: 80px;
   border: 8px solid $button-grad;
   background-color: $contrastcolor;
   border-radius: 80px;
