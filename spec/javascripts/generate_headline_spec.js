@@ -1,5 +1,5 @@
 describe('CBGgetNewHeadline', function(){
    it('works', function(){
-      expect(CBGgetNewHeadline()).toEqual(true);
+      expect(CBG.getNewHeadline()).toEqual(true);
    });
 });

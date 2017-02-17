@@ -67,15 +67,22 @@ describe 'Clickbait Generator', :feature, :js do
 
 
   context  "when I visit a permalink" do
-    let(:clickbait) {
-      clickbait = Clickbait.create headline: "something hilarious", headline_type: 'listicle'
-    }
+    let(:clickbait) { Clickbait.create headline: "something hilarious", headline_type: 'listicle' }
+
     before do
-      visit "/best_of/#{clickbait.id}"
+      visit "/##{clickbait.id}"
     end
     it "shows the existing headline" do
       expect(page.find("#headline").text()).to eql clickbait.headline
     end
+    it "includes the clickbait id in the url hash" do
+      expect(page).to have_location_hash clickbait.id
+    end
+    it "clears the hash after fetching a new clickbait" do
+      find("#listicle").click
+      expect(page).to have_no_location_hash
+    end
+
     it_behaves_like "a Clickbait Generator page"
   end
 
