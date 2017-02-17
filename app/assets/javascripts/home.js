@@ -18,6 +18,7 @@ CBG = {
 
     onGetSuccess: function(data, status, xhr, leaveHashAlone) {
         // maybe this will do something else later, like register analytics
+        $(".ladom").html("");  // clear the share modal link
         return true;
     },
 
@@ -35,10 +36,10 @@ window.onload = function () {
             'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    $("a.clickbaits #clickbait-buttons .btn-clickbait").click(function(event) {
+    $("a.clickbaits #clickbait-buttons .button--clickbait").click(function(event) {
         window.location = '/';
     });
-    $('.home #clickbait-buttons .btn-clickbait').click(CBG.getNewHeadline);
+    $('.home #clickbait-buttons .button--clickbait').click(CBG.getNewHeadline);
     $('#manual-ajax').click(function(event){
         var $modalDiv = $(".ladom");
         event.preventDefault();
