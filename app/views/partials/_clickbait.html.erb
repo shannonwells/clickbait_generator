@@ -2,17 +2,13 @@
   <h1 id='headline'><%= content %></h1>
 </div>
 <div id='clickbait-buttons'>
-  <% %w(listicle whathappens dontwanna whyi watchas).each do |htype| %>
-      <% activeclass = (htype==@current_val) ? 'active' : ''%>
-      <% title = list_type_title(htype) %>
-      <span id="<%= htype %>" title="<%= title %>" class="sparkley btn-clickbait <%= activeclass %> ">
-          <%= title %>
-        </span>
+  <% %w(listicle whathappens dontwanna whyi watchas).each do |button_type| %>
+    <%= clickbait_button(button_type, @clickbait ? @clickbait.headline_type : 'listicle') %>
   <% end %>
 </div>
 
 <div class="share">
-  <button id="manual-ajax">Share Permalink</button>
+  <button class="button sparkley blue xs" id="manual-ajax">Share Permalink</button>
   <div class='' id="init-twit">
     <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://clickbaitgenerator.herokuapp.com" data-text="" data-via="ShannonEWells" data-size="large" data-count="none">Tweet</a>
   </div>

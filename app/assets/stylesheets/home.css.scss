@@ -28,6 +28,15 @@ h1 {
 #topbar {
   background-color: $bgcolor;
   color: $linkcolor;
+  padding: 0 30px;
+  line-height: 30px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  .nav {
+    margin: 10px 0;
+    flex: 1;
+  }
 }
 
 #main {
@@ -48,34 +57,41 @@ h1 {
   }
 }
 
+.clickbait-frame {
+  padding-top: 20px;
+  min-height: 120px;
+}
+
 #clickbait-buttons {
   //background: #000;
-  padding: 1em 2em;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 28px;
   flex-wrap: wrap;
   text-align: center;
   display: flex;
   justify-content: space-around;
 }
 
-.btn-clickbait {
-  @include button--gradient;
-  margin: 1em 15px;
-  &:last-child {
-    margin-left: 0;
+.share {
+  text-align: center;
+  .button {
+    width: 10%;
+    min-width: 100px;
   }
+}
+
+.button.button--clickbait {
+  font-family: 'Lobster Two', cursive;
+  font-weight: 700;
+  margin: 28px;
   flex-basis: 0;
   flex-grow: 1;
   margin-top: 5px;
-  line-height: 2.5em;
   cursor: pointer;
-  color: #ffffff;
   text-decoration: none;
-  text-shadow: 0px -1px 0px #c70067;
 }
 
-.btn-clickbait:active {
+.button--clickbait:active {
   position: relative;
   top: 1px;
 }
@@ -105,4 +121,21 @@ h1 {
   transition: all 0.25s ease;
 }
 
+.text-center { text-align: center; }
 
+.clickbait-link {
+  width: 75%;
+  font-size: 22px;
+  padding: 11px;
+  display: block;
+  margin: 10px auto;
+}
+
+.ladom.modal {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 80px;
+  border: 8px solid $button-grad;
+  background-color: $contrastcolor;
+  border-radius: 80px;
+}

@@ -27,7 +27,6 @@ class HomeController < ApplicationController
 
   def fetch_or_generate_clickbait(best_of_id)
     @clickbait = fetch_clickbait(best_of_id) || generate_clickbait
-    @current_val = @clickbait.headline_type
     @headline = @clickbait.headline
   end
 

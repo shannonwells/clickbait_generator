@@ -1,3 +1,4 @@
 <div class="">
-  <h2><%= link_to(@clickbait.headline, best_of_url(@clickbait))%></h2>
+  <h1 class="text-center"><%= @clickbait.headline %></h1>
+  <input type="text" class="clickbait-link" value="<%= best_of_url(@clickbait) %>" >
 </div>
