@@ -5,7 +5,6 @@ require 'rspec/rails'
 require 'capybara/rails'
 require "selenium/webdriver"
 require 'database_cleaner'
-require 'faker'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
