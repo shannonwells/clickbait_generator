@@ -1,31 +1,65 @@
 CBG = {
-    getNewHeadline: function(event) {
+    getNewHeadline: function (event) {
         CBG.getHeadline($(this).attr('id'));
     },
 
-    getBestOf: function(id) {
-        $.get('/home/generate', { id: id }, CBG.onGetSuccess );
+    getBestOf: function (id) {
+        $.get('/home/generate', {id: id}, CBG.onGetSuccess);
     },
 
-    getHeadline: function(headlineType) {
-        $.get('/home/generate', { headline_type: headlineType }, CBG.onGetSuccess);
+    getHeadline: function (headlineType) {
+        $.get('/home/generate.json', {headline_type: headlineType}, CBG.onGetSuccess);
         CBG.resetLocationHash();
     },
 
-    resetLocationHash: function() {
+    resetLocationHash: function () {
         location.hash = "";
     },
 
-    onGetSuccess: function(data, status, xhr, leaveHashAlone) {
-        // maybe this will do something else later, like register analytics
-        $(".ladom").html("");  // clear the share modal link
-        return true;
+    setActiveButton: function(headline_type) {
+        var $activeButton = $("#" + headline_type);
+        $("#clickbait-buttons .button--clickbait").removeClass('active');
+        $activeButton.addClass('active');
     },
 
-    onShareSuccess: function(html) {
+    reTwit: function(headline) {
+        var twit_html = [
+            '<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://clickbaitgenerator.herokuapp.com" data-text="',
+            headline,
+            '" data-via="ShannonEWells" data-size="large" data-count="none" data-hashtags="clickbaitgenerator"></a>'].join('');
+
+        $("#init-twit").html(twit_html);
+        twttr.widgets.load();
+    },
+
+    // maybe this will do something else later, like register analytics
+    onGetSuccess: function (data, status, xhr, leaveHashAlone) {
+        // clear the share modal link
+        $(".ladom").html("");
+        $("#headline-img").attr("src", data.clickbait.image.url);
+        $("#headline").html(data.clickbait.headline);
+        reTwit(data.clickbait.headline);
+        setActiveButton(data.clickbait.type);
+    },
+
+    onShareSuccess: function (html) {
         var $modalDiv = $(".ladom");
         $(html).appendTo($modalDiv);
         $modalDiv.modal();
+    },
+
+    sharePermalink: function (event) {
+        var $modalDiv = $(".ladom");
+        event.preventDefault();
+        if ($modalDiv.text() == "") {
+            var headLine = $("#headline").text();
+            var headlineType = "listicle";
+            $.post("/clickbaits",
+                {clickbait: {headline: headLine, headline_type: headlineType}},
+                CBG.onShareSuccess);
+        } else {
+            $modalDiv.modal();
+        }
     }
 }
 
@@ -36,23 +70,11 @@ window.onload = function () {
             'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    $("a.clickbaits #clickbait-buttons .button--clickbait").click(function(event) {
+    $("a.clickbaits #clickbait-buttons .button--clickbait").click(function (event) {
         window.location = '/';
     });
     $('.home #clickbait-buttons .button--clickbait').click(CBG.getNewHeadline);
-    $('#manual-ajax').click(function(event){
-        var $modalDiv = $(".ladom");
-        event.preventDefault();
-        if ($modalDiv.text() == "") {
-            var headLine = $("#headline").text();
-            var headlineType = "listicle";
-            $.post("/clickbaits",
-                   { clickbait: { headline: headLine, headline_type: headlineType }},
-                   CBG.onShareSuccess);
-        } else {
-            $modalDiv.modal();
-        }
-    });
+    $('#manual-ajax').click(CBG.sharePermalink);
 
     // rainbow as a color generates random rainbow colros
     // count determines number of sparkles

@@ -13,13 +13,13 @@ class Clickraw
         privacy_filter: 1,
         safe_search: true,
         license: "5,7,9,10"
-    ).first
+    )[0]
     flickr_user(resp["owner"]).merge(url: flickr_url(resp["id"]))
   end
 
   def flickr_url(photo_id)
     info = flickr.photos.getInfo(:photo_id => photo_id)
-    FlickRaw.url_b(info)
+    FlickRaw.url_z(info);
   end
 
   def flickr_user(user_id)

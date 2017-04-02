@@ -25,8 +25,8 @@ class HomeController < ApplicationController
   end
 
   def fetch_or_generate_clickbait(best_of_id)
-    @clickbait = fetch_clickbait(best_of_id) || generate_clickbait
-    @headline = @clickbait.headline
+    clickbait = fetch_clickbait(best_of_id) || generate_clickbait
+    @clickbait = ClickbaitPresenter.new(clickbait)
   end
 
   def fetch_clickbait(best_of_id)

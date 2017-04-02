@@ -1,8 +1,0 @@
-var $activeButton = $('#<%= @clickbait.headline_type %>');
-// cleanse active flag
-$("#clickbait-buttons .button--clickbait").removeClass('active');
-$activeButton.addClass('active');
-$("#headline-img").attr("src", "https://c1.staticflickr.com/3/2732/4327514214_e90c408ef7.jpg").attr("title", "TESTING ONE TWO THREE")
-$("#headline").html("<%= @clickbait.headline.html_safe %>");
-$("#init-twit").html('<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://clickbaitgenerator.herokuapp.com" data-text="<%= escape_javascript(@headline.html_safe) %>" data-via="ShannonEWells" data-size="large" data-count="none" data-hashtags="clickbaitgenerator"></a>');
-twttr.widgets.load();
