@@ -2,6 +2,9 @@ clickbait_generator
 ===================
 A clickbait headline generator, like those silly things you see on teh internets trying desperately to get you to click on them.
 
+### Current build status: 
+[![CircleCI](https://circleci.com/gh/shannonwells/clickbait_generator.svg?style=svg)](https://circleci.com/gh/shannonwells/clickbait_generator)
+
 You can run clickbait.rb from the top level directory (this is the original script), or you can run it as a Rails app.
 
 ### Rails App
