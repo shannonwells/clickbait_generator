@@ -26,36 +26,33 @@ jobs:
 
       # Download and cache dependencies
       - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "Gemfile.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+        keys:
+        - v1-dependencies-{{ checksum "Gemfile.lock" }}
+        # fallback to using the latest cache if no exact match is found
+        - v1-dependencies-
 
       - run: bundle install --path vendor/bundle
-
 #            bundle install --jobs=4 --retry=3 --path vendor/bundle
+
       - save_cache:
           paths:
             - ./venv
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-      # Database setup
       - name: Set up database
-        environment:
-          DATABASE_URL: "postgres://ubuntu@localhost:5432/db_name"
         command: |
           bundle exec rake db:create
           bundle exec rake db:schema:load
+        environment:
+          DATABASE_URL: "postgres://ubuntu@localhost:5432/db_name"
 
-      # run tests!
       - name: run tests
-          command: |
-            bundle exec rspec --format progress \
-                              --format RspecJunitFormatter \
-                              --out /tmp/test-results/rspec.xml \
-                              --format progress
+        command: |
+          bundle exec rspec --format progress \
+                            --format RspecJunitFormatter \
+                            --out /tmp/test-results/rspec.xml \
+                            --format progress
 
-      # collect reports
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
