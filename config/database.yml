@@ -20,3 +20,7 @@ test:
   <<: *default
   database: test
 
+ci:
+  <<: *default
+  username: ubuntu
+  database: ci
