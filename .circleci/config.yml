@@ -21,7 +21,8 @@ jobs:
     steps:
       - checkout
 
-      - run: sudo apt-get install -y unzip xvfb qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
+      - name: update apt-get and install required packages
+        command: sudo apt-get install -y unzip xvfb qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
 
       # Download and cache dependencies
       - restore_cache:
@@ -39,8 +40,7 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
-      - run:
-        name: Set up database
+      - name: Set up database
         environment:
           DATABASE_URL: "postgres://ubuntu@localhost:5432/db_name"
         command: |
@@ -48,8 +48,7 @@ jobs:
           bundle exec rake db:schema:load
 
       # run tests!
-      - run:
-          name: run tests
+      - name: run tests
           command: |
             bundle exec rspec --format progress \
                               --format RspecJunitFormatter \
