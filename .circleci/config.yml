@@ -38,8 +38,8 @@ jobs:
           command: |
             bundle install --path vendor/bundle
           environment:
-            - RAILS_ENV=ci
-            - RACK_ENV=ci
+              RAILS_ENV: ci
+              RACK_ENV: ci
 
       - save_cache:
           paths:
