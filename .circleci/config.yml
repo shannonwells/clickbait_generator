@@ -34,11 +34,12 @@ jobs:
           - v1-dependencies-
 
       - run:
-        name: testing
-        command: bundle install --path vendor/bundle
-        environment:
-          - RAILS_ENV=ci
-          - RACK_ENV=ci
+          name: testing
+          command: |
+            bundle install --path vendor/bundle
+          environment:
+            - RAILS_ENV=ci
+            - RACK_ENV=ci
 
       - save_cache:
           paths:
