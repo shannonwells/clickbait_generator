@@ -39,14 +39,14 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       - name: Set up database
-          command: |
+        command: |
             bundle exec rake db:create
             bundle exec rake db:schema:load
-          environment:
+        environment:
             DATABASE_URL: "postgres://ubuntu@localhost:5432/db_name"
 
       - name: run tests
-          command: |
+        command: |
             bundle exec rspec --format progress \
                               --format RspecJunitFormatter \
                               --out /tmp/test-results/rspec.xml \
