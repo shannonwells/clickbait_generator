@@ -40,17 +40,12 @@ jobs:
 
       - name: Set up database
         command: |
-            bundle exec rake db:create
-            bundle exec rake db:schema:load
+              bundle exec rake db:create
+              bundle exec rake db:schema:load
         environment:
-            DATABASE_URL: "postgres://ubuntu@localhost:5432/db_name"
+            DATABASE_URL: "postgres://ubuntu@localhost:5432/test"
 
-      - name: run tests
-        command: |
-            bundle exec rspec --format progress \
-                              --format RspecJunitFormatter \
-                              --out /tmp/test-results/rspec.xml \
-                              --format progress
+      - run: bundle exec rspec
 
       - store_test_results:
           path: /tmp/test-results
