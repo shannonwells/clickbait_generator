@@ -8,7 +8,6 @@ jobs:
     docker:
       # specify the version you desire here
        - image: circleci/ruby:2.4.1-node-browsers
-       - image: circleci/ruby:2.4.1-node-browsers
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -20,6 +19,10 @@ jobs:
     steps:
       - checkout
 
+      - run:
+        name: apt-get a bunch of stuff
+        command: |
+          apt-get install -y unzip svfb qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
       # Download and cache dependencies
       - restore_cache:
           keys:
