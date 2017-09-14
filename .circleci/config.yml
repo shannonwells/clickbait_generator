@@ -19,7 +19,7 @@ jobs:
     steps:
       - checkout
 
-      - run: apt-get install -y unzip svfb qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
+      - run: sudo apt-get install -y unzip svfb qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
 
       # Download and cache dependencies
       - restore_cache:
