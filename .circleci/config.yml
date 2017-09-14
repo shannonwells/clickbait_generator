@@ -41,7 +41,7 @@ jobs:
       # copied directly from their #($*&!^%! docs!!!!
       - name: Set up DB
         command: |
-          bundle exec rake db:create db:schema:load --trace
+          bundle exec rake db:create db:schema:load --trace \
           bundle exec rake db:migrate
         environment:
           DATABASE_URL: "postgres://ubuntu@localhost:5432/test"
