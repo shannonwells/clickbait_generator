@@ -78,6 +78,18 @@ GEM
     jquery-cdn (2.2.4)
       sprockets (>= 2)
     json (2.1.0)
+    kaminari (1.0.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.0.1)
+      kaminari-activerecord (= 1.0.1)
+      kaminari-core (= 1.0.1)
+    kaminari-actionview (1.0.1)
+      actionview
+      kaminari-core (= 1.0.1)
+    kaminari-activerecord (1.0.1)
+      activerecord
+      kaminari-core (= 1.0.1)
+    kaminari-core (1.0.1)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.6)
@@ -204,6 +216,7 @@ DEPENDENCIES
   jasmine
   jasmine-jquery-rails
   jquery-cdn
+  kaminari
   nyan-cat-formatter
   pg
   puma

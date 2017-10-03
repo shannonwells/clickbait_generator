@@ -11,6 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'spring', group: :development
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'kaminari'
 gem 'verbs'
 
 gem 'flickraw'
