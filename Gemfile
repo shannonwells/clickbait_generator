@@ -5,8 +5,10 @@ ruby '2.4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~>5.1'
 gem 'pg'
+
 # Use SCSS for stylesheets
 gem 'sass-rails'
+gem 'coffee-rails'
 gem 'jquery-cdn'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
