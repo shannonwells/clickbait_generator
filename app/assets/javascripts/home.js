@@ -54,13 +54,8 @@ window.onload = function () {
         }
     });
 
-    // clear modal on close
-    $(".ladom").on($.modal.CLOSE, function() {
-      $(".modal").html("");
-    });
-
-    // select entire clickbait link on click
-    $(".ladom").on($.modal.OPEN, function() {
+    // bind once - select entire clickbait link on click
+    $(".ladom").one($.modal.OPEN, function() {
       $(".clickbait-link[type='text']").on("click", function () { $(this).select(); });
     });
 

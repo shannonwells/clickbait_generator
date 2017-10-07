@@ -27,6 +27,21 @@ describe 'Clickbait Generator', :feature, :js do
       end
     end
 
+    it "lets me share another permalink in the same page session" do
+      first_headline = page.find("#headline").text
+      click_on 'Share Permalink'
+      locator = page.find(".modal")
+      expect(locator).to have_text(first_headline)
+
+      click_on "Close"
+
+      click_clickbait("Voyeurism")
+      voyeurism_headline = page.find("#headline").text
+      expect(voyeurism_headline).not_to eq first_headline
+      click_on "Share Permalink"
+      expect(find(".modal")).to have_content(voyeurism_headline)
+    end
+
   end
 
   context "when I visit the home page" do
@@ -52,7 +67,7 @@ describe 'Clickbait Generator', :feature, :js do
     end
 
     context 'when I click on a button' do
-      Clickbait::HEADLINE_TYPES.each do |headline_type, headline_info|
+      Clickbait::HEADLINE_TYPES.each do |headline_type|
         before do
           visit '/'
           click_clickbait(list_type_title(headline_type))
@@ -84,25 +99,6 @@ describe 'Clickbait Generator', :feature, :js do
     end
 
     it_behaves_like "a Clickbait Generator page"
-  end
-
-  context "when I generate a permalink" do
-    before do
-      visit root_path
-    end
-    it "shows the permalink in a modal" do
-      first_headline = page.find("#headline").text
-      puts "F", first_headline
-      click_on "Share Permalink"
-      click_on "Close"
-      click_clickbait "Voyeurism"
-
-      voyeurism_headline = page.find("#headline").text
-      puts "V", voyeurism_headline
-      expect(voyeurism_headline).not_to eq first_headline
-      click_on "Share Permalink"
-      expect(find(".modal-content")).to have_content(voyeurism_headline)
-    end
   end
 
 end
