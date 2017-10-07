@@ -46,19 +46,14 @@ h1 {
   background-color: $contrastcolor;
 }
 
-#footer {
-  background-color: $bgcolor;
-  margin: 0;
-  padding: 20px 0;
-  text-align: center;
-  .left {
-    float: left;
-  }
-  .nav-bottom {
-    padding: 0 10px;
+#about {
+  padding: 20px 30px 40px;
+  p {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 800;
   }
 }
-
 .clickbait-frame {
   padding-top: 20px;
   min-height: 120px;
@@ -123,14 +118,25 @@ h1 {
   transition: all 0.25s ease;
 }
 
-.text-center { text-align: center; }
+.text-center {
+  text-align: center;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
 
 .clickbait-link {
   width: 75%;
   font-size: 22px;
   padding: 11px;
   display: block;
-  margin: 10px auto;
+    margin: 0 10px 15px;
+    border-radius: 20px;
+    border: none;
 }
 
 .ladom.modal {
