@@ -52,10 +52,10 @@ describe 'Clickbait Generator', :feature, :js do
     end
 
     context 'when I click on a button' do
-      Clickbait::HEADLINE_TYPES.each do |headline_type|
+      Clickbait::HEADLINE_TYPES.each do |headline_type, headline_info|
         before do
           visit '/'
-          find("##{headline_type}").click
+          click_clickbait(list_type_title(headline_type))
         end
 
         it_behaves_like "a Clickbait Generator page"
@@ -79,11 +79,30 @@ describe 'Clickbait Generator', :feature, :js do
       expect(page).to have_location_hash clickbait.id
     end
     it "clears the hash after fetching a new clickbait" do
-      find("#listicle").click
+      click_clickbait("Listicle")
       expect(page).to have_no_location_hash
     end
 
     it_behaves_like "a Clickbait Generator page"
+  end
+
+  context "when I generate a permalink" do
+    before do
+      visit root_path
+    end
+    it "shows the permalink in a modal" do
+      first_headline = page.find("#headline").text
+      puts "F", first_headline
+      click_on "Share Permalink"
+      click_on "Close"
+      click_clickbait "Voyeurism"
+
+      voyeurism_headline = page.find("#headline").text
+      puts "V", voyeurism_headline
+      expect(voyeurism_headline).not_to eq first_headline
+      click_on "Share Permalink"
+      expect(find(".modal-content")).to have_content(voyeurism_headline)
+    end
   end
 
 end

@@ -14,4 +14,8 @@ module Headlines
       end
     end
   end
+
+  def click_clickbait(title)
+    find(".button--clickbait[title='#{title}']").click()
+  end
 end
