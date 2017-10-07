@@ -54,6 +54,16 @@ window.onload = function () {
         }
     });
 
+    // clear modal on close
+    $(".ladom").on($.modal.CLOSE, function() {
+      $(".modal").html("");
+    });
+
+    // select entire clickbait link on click
+    $(".ladom").on($.modal.OPEN, function() {
+      $(".clickbait-link[type='text']").on("click", function () { $(this).select(); });
+    });
+
     // rainbow as a color generates random rainbow colros
     // count determines number of sparkles
     // overlap allows sparkles to migrate... watch out for other dom elements though.
