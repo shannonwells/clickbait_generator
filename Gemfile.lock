@@ -78,6 +78,8 @@ GEM
     jquery-cdn (2.2.4)
       sprockets (>= 2)
     json (2.1.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.6)
@@ -204,6 +206,7 @@ DEPENDENCIES
   jasmine
   jasmine-jquery-rails
   jquery-cdn
+  launchy
   nyan-cat-formatter
   pg
   puma
@@ -221,4 +224,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.14.6
+   1.15.4
