@@ -54,6 +54,11 @@ window.onload = function () {
         }
     });
 
+    // bind once - select entire clickbait link on click
+    $(".ladom").one($.modal.OPEN, function() {
+      $(".clickbait-link[type='text']").on("click", function () { $(this).select(); });
+    });
+
     // rainbow as a color generates random rainbow colros
     // count determines number of sparkles
     // overlap allows sparkles to migrate... watch out for other dom elements though.
