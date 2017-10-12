@@ -51,9 +51,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    capybara-webkit (1.14.0)
-      capybara (>= 2.3.0, < 2.14.0)
-      json
+    capybara-selenium (0.0.6)
+      capybara
+      selenium-webdriver
     childprocess (0.7.1)
       ffi (~> 1.0, >= 1.0.11)
     database_cleaner (1.6.1)
@@ -77,7 +77,6 @@ GEM
     jasmine-jquery-rails (2.0.3)
     jquery-cdn (2.2.4)
       sprockets (>= 2)
-    json (2.1.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.6)
@@ -197,7 +196,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
   capybara
-  capybara-webkit
+  capybara-selenium
   database_cleaner
   faker
   flickraw
@@ -221,4 +220,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.14.6
+   1.15.4

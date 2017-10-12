@@ -32,7 +32,7 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'capybara-webkit'
+  gem 'capybara-selenium'
   gem 'database_cleaner'
   gem 'nyan-cat-formatter'
 end
