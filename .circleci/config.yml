@@ -11,49 +11,37 @@ jobs:
           environment:
             - PG_HOST=localhost
             - PG_USER=ubuntu
-            - RAILS_ENV=ci
-            - RACK_ENV=ci
+            - RAILS_ENV=test
+            - RACK_ENV=test
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       - image: circleci/postgres:9.6.5-alpine-ram
-        environment:
-          - POSTGRES_USER=ubuntu
-          - POSTGRES_DB=circle_test
-          - POSTGRES_PASSWORD=""
     steps:
       - checkout
-
-      - run: sudo apt-get install -y unzip xvfb qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
-
-      # Download and cache dependencies
       - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "Gemfile.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+          key: rails-demo-{{ checksum "Gemfile.lock" }}
 
-      - run:
-          name: testing
-          command: |
-            bundle install --path vendor/bundle
-          environment:
-              RAILS_ENV: ci
-              RACK_ENV: ci
+      - run: bundle install --path vendor/bundle
 
+      # Store bundle cache
       - save_cache:
+          key: rails-demo-{{ checksum "Gemfile.lock" }}
           paths:
-            - ./venv
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - vendor/bundle
 
-      - run: bundle exec rake db:create db:schema:load --trace
-
+      - run: bundle exec rake db:create db:schema:load
       - run: bundle exec rake db:migrate
 
-      - run: bundle exec rspec
+      # Run rspec in parallel
+      - type: shell
+        command: |
+          bundle exec rspec --profile 10 \
+                            --format RspecJunitFormatter \
+                            --out test_results/rspec.xml \
+                            --format progress \
+                            $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
+      # Save test results for timing analysis
       - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+          path: test_results
