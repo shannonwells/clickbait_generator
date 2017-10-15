@@ -26,7 +26,7 @@ gem 'autoprefixer-rails'
 gem 'rails_12factor', group: :production
 gem 'awesome_print'
 
-group :development, :test do
+group :development, :test, :ci do
   gem 'rspec-rails'
   gem 'jasmine'
   gem 'jasmine-jquery-rails'
