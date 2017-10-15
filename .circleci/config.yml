@@ -7,7 +7,6 @@ jobs:
   build:
     working_directory: ~/myapp
     docker:
-      # specify the version you desire here
       - image: circleci/ruby:2.4.1-node-browsers
         environment:
           DATABASE_URL: "postgres://myapp@localhost/myapp-test"
