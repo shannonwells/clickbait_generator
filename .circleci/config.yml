@@ -10,14 +10,13 @@ jobs:
       # specify the version you desire here
       - image: circleci/ruby:2.4.1-node-browsers
         environment:
-          PG_HOST: localhost
-          PG_USER: myapp-test
-          RAILS_ENV: test
+          DATABASE_URL: "postgres://myapp@localhost/myapp-test"
+          RAILS_ENV: ci
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
-      - image: circleci/postgres:9.6.5-alpine-ram
+      - image: circleci/postgres:9.6-alpine
         environment:
           POSTGRES_USER: myapp
           POSTGRES_DB: myapp-test
@@ -41,11 +40,10 @@ jobs:
 
       # Run rspec in parallel
       - type: shell
+        environment:
+          RAILS_ENV: ci
         command: |
-          bundle exec rspec --profile 10 \
-                            --format RspecJunitFormatter \
-                            --out test_results/rspec.xml \
-                            --format progress \
+          bundle exec rspec --profile 5 --out test_results/rspec.xml \
                             $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
       # Save test results for timing analysis

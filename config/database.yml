@@ -22,5 +22,6 @@ test:
 
 ci:
   <<: *default
-  username: ubuntu
-  database: ci
+  username: myapp
+  database: myapp-test
+  password: ""
