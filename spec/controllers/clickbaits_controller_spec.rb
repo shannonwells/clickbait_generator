@@ -4,7 +4,7 @@ describe ClickbaitsController, type: :controller do
   let(:headline) { "something hilarious" }
 
   describe 'create' do
-    subject { post :create, clickbait: { headline: headline, headline_type: 'listicle' } , format: :json }
+    subject { post :create, params: {clickbait: { headline: headline, headline_type: 'listicle' } , format: :json }}
 
     it 'creates a new clickbait' do
       expect { subject }.to change{ Clickbait.count }.by 1

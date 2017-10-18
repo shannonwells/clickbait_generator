@@ -33,7 +33,7 @@ describe HomeController, type: :controller do
     end
 
     it "works with a type" do
-      get :slackbot_generate, text: 'whathappens'
+      get :slackbot_generate, params: {text: 'whathappens'}
       expect(response).to be_success
       expect(response.body).not_to be_empty
     end
@@ -57,13 +57,12 @@ describe HomeController, type: :controller do
 
       %w(whathappens listicle watchas dontwanna).each do |type|
         let(:format) { :js }
-        let(:post_params) { {headline_type: type, format: format} }
+        let(:post_params) { { headline_type: type, format: format} }
 
-        subject { post 'generate', post_params }
+        subject { post 'generate', params: post_params }
 
         context "as js" do
           it { should have_http_status :success }
-          it { should render_template :generate }
         end
 
         context "as json" do
@@ -85,7 +84,7 @@ describe HomeController, type: :controller do
       end
       it 'works' do
         Noun.create(value: "Hat")
-        expect { post 'generate', headline_type: 'dontwanna', format: :js  }.not_to raise_exception
+        expect { post 'generate', params: { headline_type: 'dontwanna', format: :js } }.not_to raise_exception
       end
     end
   end

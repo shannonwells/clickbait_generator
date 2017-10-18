@@ -21,8 +21,9 @@ class HomeController < ApplicationController
   private
 
   def clickbait_params
-    params[:headline_type] ||= params[:text]
-    params.permit(:id, :headline_type)
+    # params[:headline_type] ||= params[:text]
+    # params.permit(:id, :headline_type)
+    params
   end
 
   def fetch_or_generate_clickbait(best_of_id)
