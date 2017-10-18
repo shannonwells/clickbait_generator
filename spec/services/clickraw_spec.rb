@@ -74,8 +74,6 @@ describe Clickraw do
             to_return(:status => 200, :body => JSON.generate(photo_info), :headers => {})
       end
 
-      # TODO: these are failing b/c of the random number generation being longer than the list of test photos.
-
       it "returns the URL of the first response" do
         expect(subject[:url]).to eql "https://farm3.staticflickr.com/2912/#{photo_id}_47c3e9024e_z.jpg"
       end
@@ -93,8 +91,8 @@ describe Clickraw do
         stub_fallback_search search_results
         stub_get_people_info
         stub_get_photo_info
+        allow(SecureRandom).to receive(:random_number).and_return(0)
       end
-
 
       it "gets a random sample from the latest 30 most interesting photos" do
         subject
@@ -102,6 +100,10 @@ describe Clickraw do
 
       it "completes without error" do
         expect{subject}.not_to raise_exception
+      end
+
+      it "still returns a photo" do
+        expect(subject[:url]).to eql "https://farm3.staticflickr.com/2912/#{photo_id}_47c3e9024e_z.jpg"
       end
 
     end

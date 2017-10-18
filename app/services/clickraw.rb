@@ -19,7 +19,7 @@ class Clickraw
 
   def run(taglist)
     search_results = flickr_search taglist
-    if search_results.nil? || search_results.total == 0
+    if search_results.total == 0
       photo = flickr_random_photo
     else
       photo = search_results["photo"][0]
@@ -46,7 +46,7 @@ class Clickraw
   end
 
   def flickr_random_photo
-    index = rand(29)
+    index = SecureRandom.random_number(29)
     resp = flickr.photos.search(
         DEFAULT_PARAMS.merge(per_page: 30, sort: "interestingness-desc")
     )
