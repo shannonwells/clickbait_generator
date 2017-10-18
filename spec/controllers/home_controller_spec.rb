@@ -1,7 +1,10 @@
 require "rails_helper"
 
 describe HomeController, type: :controller do
+  include FlickrawWebmocks
+
   before do
+    mock_everything
     %w(A This Some).each { |p| Particle.create!(value: p) }
   end
 
@@ -56,8 +59,7 @@ describe HomeController, type: :controller do
       end
 
       %w(whathappens listicle watchas dontwanna).each do |type|
-        let(:format) { :js }
-        let(:post_params) { { headline_type: type, format: format} }
+        let(:post_params) { {headline_type: type, format: :json} }
 
         subject { post 'generate', params: post_params }
 
@@ -66,7 +68,6 @@ describe HomeController, type: :controller do
         end
 
         context "as json" do
-          let(:format) { :json }
           it { should have_http_status :success }
           it { should be_a_json_response }
         end
@@ -84,7 +85,7 @@ describe HomeController, type: :controller do
       end
       it 'works' do
         Noun.create(value: "Hat")
-        expect { post 'generate', params: { headline_type: 'dontwanna', format: :js } }.not_to raise_exception
+        expect { post 'generate', params; {headline_type: 'dontwanna', format: :json}  }.not_to raise_exception
       end
     end
   end

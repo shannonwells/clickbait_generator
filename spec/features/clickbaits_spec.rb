@@ -4,8 +4,9 @@ require 'rake'
 describe 'Clickbait Generator', :feature, :js do
   include HomeHelper
   include Headlines
-
+  include FlickrawWebmocks
   before do
+    mock_everything
     create_a_few_models
   end
 
@@ -64,7 +65,6 @@ describe 'Clickbait Generator', :feature, :js do
     end
 
   end
-
 
   context  "when I visit a permalink" do
     let(:clickbait) { Clickbait.create headline: "something hilarious", headline_type: 'listicle' }
