@@ -39,7 +39,7 @@ group :development, :test do
   gem 'listen'
 end
 
-group :test do
+group :test, :ci do
   gem 'rails-controller-testing'
   gem 'capybara'
   gem 'capybara-selenium'
