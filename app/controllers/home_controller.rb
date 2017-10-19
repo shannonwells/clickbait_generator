@@ -21,7 +21,6 @@ class HomeController < ApplicationController
   private
 
   def clickbait_params
-    params[:headline_type] ||= params[:text]
     params.permit(:id, :headline_type)
   end
 
