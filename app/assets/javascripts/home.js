@@ -4,10 +4,12 @@ CBG = {
     },
 
     getBestOf: function (id) {
+        $(".clickbait-frame").removeClass("got-image");
         $.get('/home/generate', {id: id}, CBG.onGetSuccess, "json");
     },
 
     getHeadline: function (headlineType) {
+        $(".clickbait-frame").removeClass("got-image");
         $.get('/home/generate.json', {headline_type: headlineType}, CBG.onGetSuccess);
         CBG.resetLocationHash();
     },
@@ -36,10 +38,13 @@ CBG = {
     onGetSuccess: function (data, status, xhr, leaveHashAlone) {
         // clear the share modal link
         $(".ladom").html("");
-        $("#headline-img").attr("src", data.clickbait.image.url);
+        $("#headline-img")
+            .attr("src", data.clickbait.image.url)
+            .parent(".clickbait-frame")
+            .addClass("got-image")
         $("#headline").html(data.clickbait.headline);
-        reTwit(data.clickbait.headline);
-        setActiveButton(data.clickbait.type);
+        CBG.reTwit(data.clickbait.headline);
+        CBG.setActiveButton(data.clickbait.type);
     },
 
     onShareSuccess: function (html) {
