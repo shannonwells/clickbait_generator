@@ -33,7 +33,7 @@ describe HomeController, type: :controller do
     end
 
     it "works with a type" do
-      get :slackbot_generate, params: {text: 'whathappens'}
+      get :slackbot_generate, params: { headline: 'whathappens' }
       expect(response).to be_success
       expect(response.body).not_to be_empty
     end
