@@ -85,7 +85,7 @@ describe HomeController, type: :controller do
       end
       it 'works' do
         Noun.create(value: "Hat")
-        expect { post 'generate', params; {headline_type: 'dontwanna', format: :json}  }.not_to raise_exception
+        expect { post 'generate', params: {headline_type: 'dontwanna', format: :json}  }.not_to raise_exception
       end
     end
   end

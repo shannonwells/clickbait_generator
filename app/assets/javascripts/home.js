@@ -4,7 +4,7 @@ CBG = {
     },
 
     getBestOf: function (id) {
-        $.get('/home/generate', {id: id}, CBG.onGetSuccess);
+        $.get('/home/generate', {id: id}, CBG.onGetSuccess, "json");
     },
 
     getHeadline: function (headlineType) {
