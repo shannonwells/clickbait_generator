@@ -59,11 +59,13 @@ h1 {
 
 .clickbait-frame {
   padding-top: 20px;
-  min-height: 120px;
+  height: 260px;
+  @media(min-width: 800px) {
+    height: 500px;
+  }
 }
 
 #clickbait-buttons {
-  //background: #000;
   font-weight: bold;
   font-size: 28px;
   flex-wrap: wrap;
@@ -108,7 +110,7 @@ h1 {
   margin: 14px auto;
 }
 
-#headline-img {
+#clickbait {
   display: none;
   margin-top: 2em;
   margin-left: auto;
@@ -118,12 +120,15 @@ h1 {
   }
 }
 
-#loader {
+#clickbait-placeholder {
   display: block;
-  margin: 0 auto;
   .got-image & {
     display: none;
   }
+}
+
+#clickbait-placeholder__placeholder-image {
+  margin: auto;
 }
 
 .sparkley {

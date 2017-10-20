@@ -55,12 +55,18 @@ CBG = {
 
     sharePermalink: function (event) {
         var $modalDiv = $(".ladom");
+        var imageUrl = $("#headline-img").attr("href");
         event.preventDefault();
         if ($modalDiv.text() == "") {
             var headLine = $("#headline").text();
             var headlineType = "listicle";
             $.post("/clickbaits",
-                {clickbait: {headline: headLine, headline_type: headlineType}},
+                { clickbait: {
+                    headline: headLine,
+                    headline_type: headlineType,
+                    image_url: imageUrl
+                  }
+                },
                 CBG.onShareSuccess);
         } else {
             $modalDiv.modal();

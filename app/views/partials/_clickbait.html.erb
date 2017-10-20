@@ -1,7 +1,9 @@
 <div class="clickbait-frame">
-  <%= image_tag "animagicalunicorn.gif", id: "loader" %>
-  <img id='headline-img'>
-  <h1 class="" id='headline'><%= content %></h1>
+  <div id="clickbait-placeholder"><%= image_tag "animagicalunicorn.gif", id: "clickbait-placeholder__placeholder-image", height: "200" %></div>
+  <div id="clickbait" class="clickbait-area">
+    <img id="headline-img" height="400">
+    <h1 class="" id='headline'><%= content %></h1>
+  </div>
 </div>
 <div id='clickbait-buttons'>
   <% %w(listicle whathappens dontwanna whyi watchas).each do |button_type| %>

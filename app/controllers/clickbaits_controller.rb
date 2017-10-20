@@ -9,7 +9,7 @@ class ClickbaitsController < ApplicationController
   private
 
   def title_params
-    params.require(:clickbait).permit(:headline, :headline_type)
+    params.require(:clickbait).permit(:headline, :headline_type, :image_url)
   end
 end
                                                                      6

@@ -25,8 +25,7 @@ class ClickbaitPresenter
   private
 
   def set_image_info
-    clickraw = Clickraw.new
-    result = clickraw.flickr_search(@clickbait.tags)
+    result = Clickraw.run(@clickbait.tags)
     @owner_title = result[:owner]
     @owner_url = result[:owner_url]
     @image_url = result[:url]

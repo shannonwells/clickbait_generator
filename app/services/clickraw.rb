@@ -6,27 +6,29 @@ class Clickraw
   DEFAULT_PARAMS= {
       privacy_filter: 1,
       safe_search: true,
+      content_type: 1,
+      # media: "photos",
       license: "5,7,9,10"
   }
 
-  def initialize
+  def initialize(taglist)
     @token = flickr.get_request_token
+    @taglist = taglist
   end
 
   def self.run(*args)
     self.new(*args).run
   end
 
-  def run(taglist)
+  def run
     search_results = flickr_search taglist
-    if search_results.total == 0
+    if search_results.total == "0"
       photo = flickr_random_photo
     else
-      photo = search_results["photo"][0]
+      photo = search_results[0]
     end
     { url: flickr_url(photo["id"]) }.merge(flickr_user(photo["owner"]))
   end
-
 
   def flickr_search(taglist)
     flickr.photos.search(DEFAULT_PARAMS.merge(text: taglist.join(" "), sort: "relevance", per_page: 1))
@@ -50,7 +52,8 @@ class Clickraw
     resp = flickr.photos.search(
         DEFAULT_PARAMS.merge(per_page: 30, sort: "interestingness-desc")
     )
-    resp["photo"][index]
+    resp[index]
   end
 
+  attr_accessor :taglist, :token
 end

@@ -67,17 +67,30 @@ describe 'Clickbait Generator', :feature, :js do
   end
 
   context  "when I visit a permalink" do
-    let(:clickbait) { Clickbait.create headline: "something hilarious", headline_type: 'listicle' }
+
+    let(:expected_url) {"https://farm3.staticflickr.com/2912/12345_z.jpg"}
+
+    let(:clickbait) { Clickbait.create headline: "something hilarious",
+                                       headline_type: 'listicle',
+                                       image_url: expected_url
+    }
 
     before do
       visit "/##{clickbait.id}"
     end
+
     it "shows the existing headline" do
       expect(page.find("#headline").text()).to eql clickbait.headline
     end
+
     it "includes the clickbait id in the url hash" do
       expect(page).to have_location_hash clickbait.id
     end
+
+    # it "shows the image for the url that was stored with the clickbait" do
+    #   expect(page).to have_selector("#headline-img[href='#{expected_url}']")
+    # end
+
     it "clears the hash after fetching a new clickbait" do
       find("#listicle").click
       expect(page).to have_no_location_hash
