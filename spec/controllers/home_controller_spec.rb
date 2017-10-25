@@ -4,7 +4,7 @@ describe HomeController, type: :controller do
   include FlickrawWebmocks
 
   before do
-    mock_everything
+    mock_flickr_search
     %w(A This Some).each { |p| Particle.create!(value: p) }
   end
 

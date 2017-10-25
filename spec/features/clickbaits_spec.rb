@@ -6,7 +6,7 @@ describe 'Clickbait Generator', :feature, :js do
   include Headlines
   include FlickrawWebmocks
   before do
-    mock_everything
+    mock_flickr_search
     create_a_few_models
   end
 

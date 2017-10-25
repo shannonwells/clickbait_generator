@@ -28,6 +28,8 @@ class Clickraw
       photo = search_results[0]
     end
     { url: flickr_url(photo["id"]) }.merge(flickr_user(photo["owner"]))
+  rescue Net::OpenTimeout
+    { error: "timeout" }
   end
 
   def flickr_search(taglist)

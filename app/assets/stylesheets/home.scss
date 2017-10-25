@@ -57,12 +57,8 @@ h1 {
   }
 }
 
-.clickbait-frame {
+#clickbait-frame {
   padding-top: 20px;
-  height: 260px;
-  @media(min-width: 800px) {
-    height: 500px;
-  }
 }
 
 #clickbait-buttons {
@@ -116,7 +112,9 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   .got-image & {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
   }
 }
 

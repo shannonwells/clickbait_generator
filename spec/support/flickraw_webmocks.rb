@@ -1,39 +1,14 @@
 module FlickrawWebmocks
 
-  def mock_everything
-    mock_oauth
-    mock_get_methods
-    mock_flickr_search
-  end
-
   def mock_flickraw_setup
     mock_oauth
     mock_get_methods
   end
 
   def mock_flickr_search
-    allow_any_instance_of(Clickraw).to receive(:flickr_search).and_return(
-    { url: "https://farm3.staticflickr.com/2912/9999_z.jpg", owner: "Internet Archive Book Images (Flickr: @internetarchivebookimages)" }
+    allow(Clickraw).to receive(:run).and_return(
+      { url: "https://farm3.staticflickr.com/2912/9999_z.jpg", owner: "Internet Archive Book Images (Flickr: @internetarchivebookimages)" }
     )
-  end
-
-  def mock_flickr_user
-    allow_any_instance_of(Clickraw).to receive(:flickr_user).and_return (
-      { url: "https://www.flickr.com/people/zzzzz/", owner: "Internet Archive Book Images (Flickr: @internetarchivebookimages)"}
-    )
-  end
-
-  def mock_flickr_url
-    allow_any_instance_of(Clickraw).to receive(:flickr_user).and_return(
-      { url: "https://farm3.staticflickr.com/2912/9999_z.jpg"}
-    )
-  end
-
-
-  def mock_get_peopleInfo(response)
-    stub_request(:post, "https://api.flickr.com/services/rest/").
-        with(:body => {"format"=>"json", "method"=>"flickr.people.getInfo", "nojsoncallback"=>"1", "user_id"=>"126377022@N07"}).
-        to_return(:status => 200, :body => JSON.generate(user_info), :headers => {})
   end
 
   def mock_oauth
