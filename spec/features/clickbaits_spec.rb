@@ -4,9 +4,7 @@ require 'rake'
 describe 'Clickbait Generator', :feature, :js do
   include HomeHelper
   include Headlines
-  include FlickrawWebmocks
   before do
-    mock_flickr_search
     create_a_few_models
   end
 
@@ -86,10 +84,6 @@ describe 'Clickbait Generator', :feature, :js do
     it "includes the clickbait id in the url hash" do
       expect(page).to have_location_hash clickbait.id
     end
-
-    # it "shows the image for the url that was stored with the clickbait" do
-    #   expect(page).to have_selector("#headline-img[href='#{expected_url}']")
-    # end
 
     it "clears the hash after fetching a new clickbait" do
       find("#listicle").click

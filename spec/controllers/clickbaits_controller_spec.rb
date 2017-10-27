@@ -21,11 +21,6 @@ describe ClickbaitsController, type: :controller do
     end
 
     it 'has the image url' do
-      allow(Clickraw).to receive(:run) {
-         {   url: expected_url,
-            owner: "Just Some Guy (Flickr: @justsomeguy)",
-            owner_url: "https://m.flickr.com/photostream.gne?id=999999"
-        }}
 
       subject
       expect(Clickbait.last.image_url).to eql expected_url

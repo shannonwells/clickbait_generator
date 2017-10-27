@@ -17,17 +17,15 @@ class ClickbaitPresenter
     { clickbait: {
         headline: @clickbait.headline,
         type: @clickbait.headline_type,
-        image: {url: @image_url},
-        owner: {url: @owner_url, title: @owner_title}
+        image: {url: @image_url, title: @owner_title},
     }}.to_json
   end
 
   private
 
   def set_image_info
-    result = Clickraw.run(@clickbait.tags)
-    @owner_title = result[:owner]
-    @owner_url = result[:owner_url]
+    result = ImageByGoogle.run(@clickbait.tags)
+    @owner_title = result[:title]
     @image_url = result[:url]
   end
 end

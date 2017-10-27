@@ -57,10 +57,6 @@ h1 {
   }
 }
 
-#clickbait-frame {
-  padding-top: 20px;
-}
-
 #clickbait-buttons {
   font-weight: bold;
   font-size: 28px;
@@ -99,6 +95,14 @@ h1 {
   height: 50px;
 }
 
+#headline,
+#headline-img {
+  display: none;
+  .got-image & {
+    display: block;
+  }
+}
+
 #headline {
   font-size: 40px;
   text-align: center;
@@ -106,16 +110,29 @@ h1 {
   margin: 14px auto;
 }
 
+#headline-img {
+  height: 400px;
+  align-self: center;
+}
+
 #clickbait {
-  display: none;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  background: transparent no-repeat;
+  background-image: image-url("animagicalunicorn.gif");
+  background-position: center;
+  padding: 20px 0;
   margin-top: 2em;
   margin-left: auto;
   margin-right: auto;
-  .got-image & {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
+  &.got-image  {
+    background-image: none;
   }
+}
+
+#clickbait {
 }
 
 #clickbait-placeholder {
@@ -123,10 +140,6 @@ h1 {
   .got-image & {
     display: none;
   }
-}
-
-#clickbait-placeholder__placeholder-image {
-  margin: auto;
 }
 
 .sparkley {

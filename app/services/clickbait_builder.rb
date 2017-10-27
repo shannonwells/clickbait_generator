@@ -34,7 +34,7 @@ class ClickbaitBuilder
       method = ['Why','How','The Day','I Wish'][rand(52)%4]
 
       { headline: "#{method} #{sub_obj} #{particle_for(adj.value,noun)} #{adj.value} #{noun.value}",
-        tags: [noun.value,verb.value ] }
+        tags: [adj.value, noun.value ] }
     end
 
     def whathappens
@@ -57,7 +57,7 @@ class ClickbaitBuilder
       adj = random_model('Adjective')
       verb = random_model('Verb')
       { headline: "You Don't Want To #{verb.value} This #{adj.value} #{noun.value}",
-        tags: [noun.value,verb.value] }
+        tags: [adj.value, noun.value] }
     end
 
     def watchas
@@ -70,7 +70,7 @@ class ClickbaitBuilder
       sub_obj = verb_string.verb.conjugate(subject: noun.value).titleize
       particle = noun.is_proper? ? '' : 'This'
       { headline: "Watch As #{particle} #{sub_obj} #{particle_for(adj.value,noun2)} #{adj.value} #{noun2.value}",
-        tags: [noun.value,noun2.value] }
+        tags: [adj.value, noun.value,noun2.value] }
     end
 
     def random_model(klass_name, opts={})

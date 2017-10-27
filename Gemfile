@@ -25,6 +25,7 @@ gem 'autoprefixer-rails'
 # Compiles assets for heroku
 gem 'rails_12factor', group: :production
 gem 'awesome_print'
+gem 'faraday'
 
 group :development, :test, :ci do
   gem 'rspec-rails'

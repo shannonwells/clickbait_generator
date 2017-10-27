@@ -1,0 +1,72 @@
+{
+  "kind": "customsearch#search",
+  "url": {
+    "type": "application/json",
+    "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}\u0026num={count?}\u0026start={startIndex?}\u0026lr={language?}\u0026safe={safe?}\u0026cx={cx?}\u0026sort={sort?}\u0026filter={filter?}\u0026gl={gl?}\u0026cr={cr?}\u0026googlehost={googleHost?}\u0026c2coff={disableCnTwTranslation?}\u0026hq={hq?}\u0026hl={hl?}\u0026siteSearch={siteSearch?}\u0026siteSearchFilter={siteSearchFilter?}\u0026exactTerms={exactTerms?}\u0026excludeTerms={excludeTerms?}\u0026linkSite={linkSite?}\u0026orTerms={orTerms?}\u0026relatedSite={relatedSite?}\u0026dateRestrict={dateRestrict?}\u0026lowRange={lowRange?}\u0026highRange={highRange?}\u0026searchType={searchType}\u0026fileType={fileType?}\u0026rights={rights?}\u0026imgSize={imgSize?}\u0026imgType={imgType?}\u0026imgColorType={imgColorType?}\u0026imgDominantColor={imgDominantColor?}\u0026alt=json"
+  },
+  "queries": {
+    "request": [
+      {
+        "title": "Google Custom Search - happy baby",
+        "totalResults": "577000",
+        "searchTerms": "happy baby",
+        "count": 1,
+        "startIndex": 1,
+        "inputEncoding": "utf8",
+        "outputEncoding": "utf8",
+        "safe": "medium",
+        "cx": "018122527762791087958:dx5nbnhsicu",
+        "rights": "cc_publicdomain,cc_noncommercial",
+        "searchType": "image",
+        "imgSize": "medium"
+      }
+    ],
+    "nextPage": [
+      {
+        "title": "Google Custom Search - happy baby",
+        "totalResults": "577000",
+        "searchTerms": "happy baby",
+        "count": 1,
+        "startIndex": 2,
+        "inputEncoding": "utf8",
+        "outputEncoding": "utf8",
+        "safe": "medium",
+        "cx": "018122527762791087958:dx5nbnhsicu",
+        "rights": "cc_publicdomain,cc_noncommercial",
+        "searchType": "image",
+        "imgSize": "medium"
+      }
+    ]
+  },
+  "context": {
+    "title": "Everything"
+  },
+  "searchInformation": {
+    "searchTime": 0.225335,
+    "formattedSearchTime": "0.23",
+    "totalResults": "577000",
+    "formattedTotalResults": "577,000"
+  },
+  "items": [
+    {
+      "kind": "customsearch#result",
+      "title": "Happy Baby | Jason Evans | Flickr",
+      "htmlTitle": "\u003cb\u003eHappy Baby\u003c/b\u003e | Jason Evans | Flickr",
+      "link": "https://c1.staticflickr.com/8/7277/7422777704_621a7d7b2c_n.jpg",
+      "displayLink": "www.flickr.com",
+      "snippet": "Happy Baby | Jason Evans | Flickr",
+      "htmlSnippet": "\u003cb\u003eHappy Baby\u003c/b\u003e | Jason Evans | Flickr",
+      "mime": "image/jpeg",
+      "image": {
+        "contextLink": "https://www.flickr.com/photos/80923124@N07/7422777704/",
+        "height": 159,
+        "width": 240,
+        "byteSize": 11702,
+        "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5bojruvhRfQonsnXH-2RiJStYU5AIWlY1PA_QW7WB4E3uxTo9uIJbwQ",
+        "thumbnailLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5bojruvhRfQonsnXH-2RiJStYU5AIWlY1PA_QW7WB4E3uxTo9uIJbwQ",
+        "thumbnailHeight": 73,
+        "thumbnailWidth": 110
+      }
+    }
+  ]
+}

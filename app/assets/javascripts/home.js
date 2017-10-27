@@ -4,12 +4,12 @@ CBG = {
     },
 
     getBestOf: function (id) {
-        $("#clickbait-frame").removeClass("got-image");
+        $("#clickbait").removeClass("got-image");
         $.get('/home/generate', {id: id}, CBG.onGetSuccess, "json");
     },
 
     getHeadline: function (headlineType) {
-        $("#clickbait-frame").removeClass("got-image");
+        $("#clickbait").removeClass("got-image");
         $.get('/home/generate.json', {headline_type: headlineType}, CBG.onGetSuccess);
         CBG.resetLocationHash();
     },
@@ -40,7 +40,8 @@ CBG = {
         $(".ladom").html("");
         $("#headline-img")
             .attr("src", data.clickbait.image.url)
-            .parents("#clickbait-frame")
+            .attr("title", data.clickbait.image.title)
+            .parents("#clickbait")
             .addClass("got-image")
         $("#headline").html(data.clickbait.headline);
         CBG.reTwit(data.clickbait.headline);
