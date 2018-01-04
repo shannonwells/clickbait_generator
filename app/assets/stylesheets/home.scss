@@ -57,19 +57,17 @@ h1 {
   }
 }
 
-.clickbait-frame {
-  padding-top: 20px;
-  min-height: 120px;
-}
-
 #clickbait-buttons {
-  //background: #000;
   font-weight: bold;
   font-size: 28px;
   flex-wrap: wrap;
   text-align: center;
   display: flex;
   justify-content: space-around;
+}
+
+.container {
+  padding: 22px;
 }
 
 .share {
@@ -102,19 +100,31 @@ h1 {
 }
 
 #headline {
+  min-height: 160px;
   font-size: 40px;
   text-align: center;
   padding: 0 14px;
   margin: 14px auto;
+  &.got-headline {
+    background: none;
+  }
 }
 
-.headline-image {
-  display: block;
-  width: 320px;
-  height: 240px;
+#clickbait {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding: 20px 0;
   margin-top: 2em;
   margin-left: auto;
   margin-right: auto;
+}
+
+#clickbait {
+}
+
+#clickbait-placeholder {
+  display: block;
 }
 
 .sparkley {
