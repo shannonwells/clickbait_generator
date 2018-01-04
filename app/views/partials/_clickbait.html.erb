@@ -1,6 +1,7 @@
-<div class="clickbait-frame">
-  <h1 id='headline'><%= content %></h1>
+<div id="clickbait" class="clickbait-area">
+  <h1 class="" id='headline'><%= content %></h1>
 </div>
+
 <div id='clickbait-buttons'>
   <% %w(listicle whathappens dontwanna whyi watchas).each do |button_type| %>
     <%= clickbait_button(button_type, @clickbait ? @clickbait.headline_type : 'listicle') %>
