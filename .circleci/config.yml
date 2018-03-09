@@ -5,7 +5,7 @@
 version: 2
 jobs:
   build:
-    parallelism: 
+    parallelism: 2
     working_directory: ~/myapp
     docker:
       - image: circleci/ruby:2.4.1-node-browsers
@@ -43,9 +43,11 @@ jobs:
         environment:
           RAILS_ENV: ci
         command: |
-          bundle exec rspec --profile 5 --out test_results/rspec.xml \
+          bundle exec rspec --profile 5 --out $CIRCLE_ARTIFACTS/rspec.xml \
                             $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
-      # Save test results for timing analysis
+      # Save test results for timing analysisj
       - store_test_results:
           path: test_results
+      - store_artifacts:
+          path: $CIRCLE_ARTIFACTS/artifacts
