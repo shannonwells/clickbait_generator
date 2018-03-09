@@ -5,6 +5,7 @@
 version: 2
 jobs:
   build:
+    parallelism: 
     working_directory: ~/myapp
     docker:
       - image: circleci/ruby:2.4.1-node-browsers
