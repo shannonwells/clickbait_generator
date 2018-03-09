@@ -43,7 +43,7 @@ jobs:
         environment:
           RAILS_ENV: ci
         command: |
-          bundle exec rspec --profile 5 --out tmp/rspec.xml \
+          bundle exec rspec --profile 5 -f doc \
                             $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
       # Save test results for timing analysisj
