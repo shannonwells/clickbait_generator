@@ -23,6 +23,7 @@ Capybara.register_driver :headless_chrome do |app|
 end
 
 Capybara.javascript_driver = :headless_chrome
+Capybara.server = :webrick
 
 
 RSpec.configure do |config|
