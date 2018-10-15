@@ -2,6 +2,8 @@ clickbait_generator
 ===================
 A clickbait headline generator, like those silly things you see on teh internets trying desperately to get you to click on them.
 
+This project is being rewritten in Elixir/Phoenix.  This codebase will then be EOLed.
+
 ### Current build status: 
 [![CircleCI](https://circleci.com/gh/shannonwells/clickbait_generator.svg?style=svg)](https://circleci.com/gh/shannonwells/clickbait_generator)
 
