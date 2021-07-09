@@ -10,7 +10,7 @@ module HomeHelper
     },
     whathappens: {
       display: "Suspense",
-      icon: "⌛",
+      icon: "⧗",
       color: "pink"
     },
     dontwanna: {
